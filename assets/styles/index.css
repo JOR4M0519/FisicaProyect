@@ -1,26 +1,47 @@
-nav {
+body {
+    display: inline-flex;
     margin: 0;
-    padding: 10px 0;
+    width: 100vw;
+    height: 100vh;
     background-color: rgb(99, 152, 212);
-    
+    align-items: center;
+    justify-content: center;
 }
 
+
 li {
+    border-radius: 5px;
     border-width: 1.5px;
-    margin: 0 2px;
+    margin: 2px 2px;
     border-style: solid;
     background-color: rgb(35, 101, 163);
     border-color: rgb(6, 4, 104);
-    padding: 10px ;
-    display: inline;
+    min-width: 120px;
+    padding: 10px;
+    display: inline-flex;
     list-style: none;
-    
 }
-li a{
+
+li a {
     text-decoration: none;
     color: white;
 }
 
-.groupItems{
-    justify-content: space-between;
+.itemGroup{
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.buttonGroup {
+    display: inline-flex;
+    margin: 0;
+    width: 50vw;
+    height: 25vh;
+    padding: 0 80px;
+    background-color: rgb(191, 206, 224);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 }
