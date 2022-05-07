@@ -6,13 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyecto canvas</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="assets/styles/planoCartesiano.css">
 </head>
 
 <body>
     <main class="main-container">
         <button><a href="index.html"> Regresar </a></button>
-        <canvas id="main-canvas" width="900" height="900""></canvas>
+        <canvas id="maincanvas" width="900px" height="900px"></canvas>
+
+
+        <svg id="plain">
+            <g id="axisY" transform="translate(420, 20)"></g>
+            <g id="axisX" transform="translate(20, 345)"></g>
+        </svg>
+        
+
     </main>
     <script src=" assets/js/planoCartesiano.js"></script>
 </body>

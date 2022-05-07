@@ -1,16 +1,31 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .main-container {
-    background-color: rgb(113, 128, 212);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  canvas {
-    background-color: #fff;
-  }
+  margin: 0;
+  padding: 0;
+
+}
+
+.main-container {
+  background-color: rgb(113, 128, 212);
+  height: 100vh;
+  display: block;
+
+
+}
+
+/* #maincanvas {
+  background-image: url(../img/plain.svg);
+} */
+
+canvas {
+  background-color: #fff;
+}
+
+#plain {
+  border-radius: 5px;
+  border-width: 1.5px;
+  border-style: solid;
+  background-color: transparent;
+  border-color: rgb(233, 233, 233);
+  width: 900px;
+  height: 900px;
+}
