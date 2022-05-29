@@ -79,7 +79,7 @@ const generateCartesianPlain = () => {
     let scalex = d3.scaleLinear().domain([-100, 100]).range([0, 800]);
     let scaley = d3.scaleLinear().domain([-80, 80]).range([0, 650]);
 
-    let axisY = d3.axisLeft(scaley).ticks(20).tickPadding(5).tickSize(5);
+    let axisY = d3.axisRight(scaley).ticks(20).tickPadding(5).tickSize(5);
     let axisX = d3.axisBottom(scalex).ticks(20).tickPadding(5).tickSize(5);
 
 
