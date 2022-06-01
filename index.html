@@ -6,16 +6,18 @@
   <title>EZPhysic</title>
   <link rel="shortcut icon" href="assets/img/logoico.ico">
   <!-- BOOTSTRAP CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <!-- BOOTSTRAP JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <!-- CUSTOM CSS -->
   <link rel="stylesheet" href="assets/styles/index.css">
- 
+
 </head>
 
 <body>
@@ -32,159 +34,260 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#leyes">Leyes</a>
+            <a class="nav-link" href="./calculator.html">Calculadora</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#leyesf">Leyes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#fisicos">Físicos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#calc">Calculadora</a>
-          </li>
+
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- HEADER -->
-  <header class="main-header" style="margin-top: 61px;">
-    <div class="text-white py-5" style="background-color: #ebc42a;">
-      <div class="container">
-        <div class="row d-flex h-100">
-          <div class="col-sm-6 text-center justify-content-center align-self-center">
-            <h1>
-              EZPhysic
-            </h1>
-            <p>Física para todos</p>
-          </div>
-          <div class="col-sm-6">
+  <header class="main-header" style="margin-top: 61px; background-color: #ebc42a;">
+    <div>
+      <div class="text-white py-5">
+        <div class="container">
+          <div class="row d-flex h-100">
+            <div class="col-sm-6 text-center justify-content-center align-self-center">
+              <h1>
+                EZPhysic
+              </h1>
+              <h3>Física para todos</h3>
+            </div>
+            <div class="col-sm-6">
               <h2 style="text-align: center;"><b> NOTICIAS DE CIENCIA! </b></h2>
               <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets/img/notice1.jpg" alt="First slide" style="border-radius: 4%;">
+                    <img class="d-block w-100" src="assets/img/notice1.jpg" alt="First slide"
+                      style="border-radius: 4%;">
                     <div class="content card-content">
-                        <h3 class="card-text">Colombia es la sede del Mundial de Física, que se celebra por primera vez fuera de Europa</h3>
-                        <a href="https://elpais.com/america-colombia/2022-05-11/colombia-es-la-sede-del-mundial-de-fisica-que-se-celebra-por-primera-vez-fuera-de-europa.html"><button type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                      <h3 class="card-text">Colombia es la sede del Mundial de Física, que se celebra por primera vez
+                        fuera de Europa</h3>
+                      <a
+                        href="https://elpais.com/america-colombia/2022-05-11/colombia-es-la-sede-del-mundial-de-fisica-que-se-celebra-por-primera-vez-fuera-de-europa.html"><button
+                          type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/img/notice2.jpg" alt="First slide" style="border-radius: 4%;">
+                    <img class="d-block w-100" src="assets/img/notice2.jpg" alt="First slide"
+                      style="border-radius: 4%;">
                     <div class="content card-content">
-                        <h3 class="card-text">La ciencia llevaba años teorizando sobre el "material maravilloso" del futuro. Ya lo ha encontrado</h3>
-                        <a href="https://www.xataka.com/investigacion/ciencia-llevaba-anos-teorizando-material-maravilloso-futuro-ha-encontrado"><button type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/img/notice3.jpg" alt="First slide" style="border-radius: 4%;">
-                    <div class="content card-content">
-                        <h3 class="card-text">Physicists predict Earth will become a chaotic world, with dire consequences</h3>
-                        <a href="https://www.livescience.com/humanity-turns-earth-chaotic-climate-system"><button type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                      <h3 class="card-text">La ciencia llevaba años teorizando sobre el "material maravilloso" del
+                        futuro. Ya lo ha encontrado</h3>
+                      <a
+                        href="https://www.xataka.com/investigacion/ciencia-llevaba-anos-teorizando-material-maravilloso-futuro-ha-encontrado"><button
+                          type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     </div>
                   </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="assets/img/notice3.jpg" alt="First slide"
+                      style="border-radius: 4%;">
+                    <div class="content card-content">
+                      <h3 class="card-text">Physicists predict Earth will become a chaotic world, with dire consequences
+                      </h3>
+                      <a href="https://www.livescience.com/humanity-turns-earth-chaotic-climate-system"><button
+                          type="button" class="btn btn-outline-dark"> Ir a la noticia </button></a>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
-          <div id="leyes"></div>
+        </div>
+      </div>
+  </header>
+
+  <!-- CALCULADORA -->
+  <!-- <section class="py-5" id="calc" style="background-color: #f1f1f1;">
+    <div class="initialDiv">
+      <h2 class="text-center" style="padding-bottom: 3%;">Calculadora</h2>
+      <div class="sectioncenter">
+        <h4>s</h4>
+      </div>
+      <div class="sectioncenter">
+
+        <div class="offcanvas-body">
+
+          <nav></nav>
+        </div>
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-outline-dark">Fuerza eléctrica</button>
+            <button type="button" class="btn btn-outline-dark">Campo eléctrico</button>
+            <button type="button" class="btn btn-outline-dark">Flujo eléctrico</button>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Ley de Gauss
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li><a class="dropdown-item" href="#">Esfera</a></li>
+                <li><a class="dropdown-item" href="#">Cilindro</a></li>
+                <li><a class="dropdown-item" href="#">Linea de Carga</a></li>
+                <li><a class="dropdown-item" href="#">Lamina</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-outline-dark">Potencial eléctrico</button>
+            <button type="button" class="btn btn-outline-dark">Energía</button>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Capacitores
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li><a class="dropdown-item" href="#">Con dieléctrico</a></li>
+                <li><a class="dropdown-item" href="#">Sin dieléctrico</a></li>
+                <li><a class="dropdown-item" href="#">Cilindro</a></li>
+                <li><a class="dropdown-item" href="#">Placas paralelas</a></li>
+                <li><a class="dropdown-item" href="#">Esfera</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </section> -->
+
 
   <!-- LEYES -->
 
-  <section class="py-5">
-      <h2 class="text-center">Leyes de la física eléctrica</h2>
+
+  <section class="py-5" id="leyesf">
+    <div style="padding-top: 3%;">
+      <h2 class="text-center">Leyes de la Física Eléctrica</h2>
       <div class="sectioncenter">
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Ley de gauss
-                </button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Ley de Gauss
+              </button>
             </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">En física la ley de Gauss, relacionada con el teorema de la divergencia o teorema de Gauss,1​ establece que el flujo de ciertos campos a través de una superficie cerrada es proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie. 
-                  Estos campos son aquellos cuya intensidad decrece como la distancia a la fuente al cuadrado. La constante de proporcionalidad depende del sistema de unidades empleado.</div>
-                    <img src="assets/img/leygimg.jpg" alt="" style="margin-left: 27%;">
-                </div>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">En física la ley de Gauss, relacionada con el teorema de la divergencia o
+                teorema de Gauss,1​ establece que el flujo de ciertos campos a través de una superficie cerrada es
+                proporcional a la magnitud de las fuentes de dicho campo que hay en el interior de la misma superficie.
+                Estos campos son aquellos cuya intensidad decrece como la distancia a la fuente al cuadrado. La
+                constante de proporcionalidad depende del sistema de unidades empleado.</div>
+              <img src="assets/img/leygimg.jpg" alt="" style="margin-left: 27%;">
             </div>
-            <div class="accordion-item">
+          </div>
+          <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                 Ley de Coulomb
-                </button>
+              </button>
             </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                    La magnitud de cada una de las fuerzas eléctricas con las que interactúan dos cargas puntuales en reposo es directamente proporcional al producto de la magnitud de ambas cargas e inversamente proporcional al cuadrado de la distancia que las separa y tiene la dirección de la línea que las une. La fuerza es de repulsión si las cargas son de igual signo, y de atracción si son de signo contrario. <br>
-                    <img src="assets/img/leycimg.png" alt="" style="margin-left: 37.5%;">
-                </div>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                La magnitud de cada una de las fuerzas eléctricas con las que interactúan dos cargas puntuales en reposo
+                es directamente proporcional al producto de la magnitud de ambas cargas e inversamente proporcional al
+                cuadrado de la distancia que las separa y tiene la dirección de la línea que las une. La fuerza es de
+                repulsión si las cargas son de igual signo, y de atracción si son de signo contrario. <br>
+                <img src="assets/img/leycimg.png" alt="" style="margin-left: 37.5%;">
+              </div>
             </div>
-            </div>
-            <div class="accordion-item">
+          </div>
+          <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                 Ley de Ohm
-                </button>
+              </button>
             </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">La ley de Ohm, postulada por el físico y matemático alemán Georg Simon Ohm, es una ley básica para entender los fundamentos principales de los circuitos eléctricos. Establece que la diferencia de potencial <b>V</b> que aplicamos entre los extremos de un conductor determinado es directamente proporcional a la intensidad de la corriente <b>I</b> que circula por el citado conductor. <br>
-                    Ohm completó la ley introduciendo la noción de resistencia eléctrica <b>R</b>; que es el factor de proporcionalidad que aparece en la relación entre <b>V</b> e <b>I</b>.</div>
-                    <img src="assets/img/leyoimg.jpg" alt="" style="margin-left: 25%;">
-                </div>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">La ley de Ohm, postulada por el físico y matemático alemán Georg Simon Ohm, es
+                una ley básica para entender los fundamentos principales de los circuitos eléctricos. Establece que la
+                diferencia de potencial <b>V</b> que aplicamos entre los extremos de un conductor determinado es
+                directamente proporcional a la intensidad de la corriente <b>I</b> que circula por el citado conductor.
+                <br>
+                Ohm completó la ley introduciendo la noción de resistencia eléctrica <b>R</b>; que es el factor de
+                proporcionalidad que aparece en la relación entre <b>V</b> e <b>I</b>.</div>
+              <img src="assets/img/leyoimg.jpg" alt="" style="margin-left: 25%;">
             </div>
-            <div class="accordion-item">
+          </div>
+          <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                 Ley de Ampère
-                </button>
+              </button>
             </h2>
-            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">La ley de Ampère explica que la circulación de la intensidad del campo magnético en un contorno cerrado es proporcional a la corriente que lo atraviesa. <br>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">La ley de Ampère explica que la circulación de la intensidad del campo
+                magnético en un contorno cerrado es proporcional a la corriente que lo atraviesa. <br>
 
-                    El campo magnético es un campo angular con forma circular, cuyas líneas de campo son círculos concéntricos. La dirección del campo en un punto es tangencial a dichos círculos en un plano que resulta perpendicular al paso de la corriente. <br>
-                    
-                    El campo magnético disminuye inversamente con la distancia al conductor.
-                    <img src="assets/img/leyaimg.png" alt="" style="margin-left: 37.5%;">
-                </div>
+                El campo magnético es un campo angular con forma circular, cuyas líneas de campo son círculos
+                concéntricos. La dirección del campo en un punto es tangencial a dichos círculos en un plano que resulta
+                perpendicular al paso de la corriente. <br>
+
+                El campo magnético disminuye inversamente con la distancia al conductor.
+                <img src="assets/img/leyaimg.png" alt="" style="margin-left: 37.5%;">
+              </div>
             </div>
             <div id="fisicos"></div>
-            </div>
+          </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- FISICOS ELECTRICOS -->
-  <section class="m5 text-center py-5" style="background-color: #f1f1f1;">
-    <h2 class="text-center">Físicos Eléctricos</h2>
+  <section class="m5 text-center py-5" id="fisicos" style="background-color: #f1f1f1;">
+    <h2 class="text-center" style="padding-top: 2%;">Físicos Eléctricos</h2>
     <div class="sectioncenter">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
@@ -193,10 +296,14 @@
             <div class="card-body">
               <h5 class="card-title">Carl Friedrich Gauss</h5>
               <p class="card-text">
-                En 1831, Gauss desarrolló una fructífera colaboración con el profesor de física Wilhelm Weber , que condujo a nuevos 
-                conocimientos sobre magnetismo (incluida la búsqueda de una representación de la unidad de magnetismo en términos de masa, 
-                carga y tiempo) y al descubrimiento de las leyes de circuito de Kirchhoff en electricidad.27​ Fue durante este tiempo que 
-                formuló la ley de su homónimo . Construyeron el primer telégrafo electromecánico en 1833,27​ que conectaba el observatorio 
+                En 1831, Gauss desarrolló una fructífera colaboración con el profesor de física Wilhelm Weber , que
+                condujo a nuevos
+                conocimientos sobre magnetismo (incluida la búsqueda de una representación de la unidad de magnetismo en
+                términos de masa,
+                carga y tiempo) y al descubrimiento de las leyes de circuito de Kirchhoff en electricidad.27​ Fue
+                durante este tiempo que
+                formuló la ley de su homónimo . Construyeron el primer telégrafo electromecánico en 1833,27​ que
+                conectaba el observatorio
                 con el instituto de física de Gotinga.
               </p>
             </div>
@@ -207,10 +314,14 @@
             <img src="assets/img/coulombpig.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Charles-Augustin de Coulomb</h5>
-              <p class="card-text">En la segunda mitad del siglo XVIII, científicos como los británicos Joseph Priestley o Henry Cavendish 
-                comenzaron a observar experimentalmente que la fuerza de atracción o repulsión entre dos cargas dependía de la magnitud de 
-                estas y era inversamente proporcional a la distancia entre ellas, como la fuerza gravitatoria descrita por Isaac Newton. 
-                Fue el francés Charles-Augustin de Coulomb (14 de junio de 1736 – 23 de agosto de 1806) quien en 1785 formuló la ley que 
+              <p class="card-text">En la segunda mitad del siglo XVIII, científicos como los británicos Joseph Priestley
+                o Henry Cavendish
+                comenzaron a observar experimentalmente que la fuerza de atracción o repulsión entre dos cargas dependía
+                de la magnitud de
+                estas y era inversamente proporcional a la distancia entre ellas, como la fuerza gravitatoria descrita
+                por Isaac Newton.
+                Fue el francés Charles-Augustin de Coulomb (14 de junio de 1736 – 23 de agosto de 1806) quien en 1785
+                formuló la ley que
                 lleva su nombre. En 1908 se designó en su honor la unidad de carga, el culombio.
               </p>
             </div>
@@ -221,11 +332,16 @@
             <img src="assets/img/amperepig.jfif" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">André-Marie Ampère</h5>
-              <p class="card-text">Si el impulso de Coulomb fue decisivo para la formulación de la electrostática, fue su compatriota 
-                André-Marie Ampère quien sentó los fundamentos de la electrodinámica. Basándose en los trabajos previos del danés Hans 
-                Christian Ørsted, en la década de 1820 Ampère comenzó a dar forma física y matemática a la fuerza de atracción o repulsión 
-                entre dos cables paralelos conductores de corriente eléctrica. La ley de Ampère abrió el camino hacia la comprensión y la 
-                definición matemática del electromagnetismo, lo que en 1881 fue reconocido asignando el nombre de amperio a la unidad de 
+              <p class="card-text">Si el impulso de Coulomb fue decisivo para la formulación de la electrostática, fue
+                su compatriota
+                André-Marie Ampère quien sentó los fundamentos de la electrodinámica. Basándose en los trabajos previos
+                del danés Hans
+                Christian Ørsted, en la década de 1820 Ampère comenzó a dar forma física y matemática a la fuerza de
+                atracción o repulsión
+                entre dos cables paralelos conductores de corriente eléctrica. La ley de Ampère abrió el camino hacia la
+                comprensión y la
+                definición matemática del electromagnetismo, lo que en 1881 fue reconocido asignando el nombre de
+                amperio a la unidad de
                 corriente eléctrica.
               </p>
             </div>
@@ -240,12 +356,18 @@
               <div class="card-body">
                 <h5 class="card-title">Georg Ohm</h5>
                 <p class="card-text">
-                  Mientras Ampère investigaba la fuerza en acción entre dos cables eléctricos, el alemán Georg Ohm (16 de marzo de 1789 
-                  – 6 de julio de 1854) empleaba las baterías de Volta y artefactos de diseño propio para estudiar cómo la corriente (I) 
-                  variaba en función del voltaje aplicado (V) y la resistencia del circuito (R). Este asunto ya había interesado a científicos 
-                  como Cavendish, que empleaba su cuerpo para cerrar el circuito y experimentar en propia carne la fuerza del choque eléctrico 
-                  en cada caso. La ley que resume los resultados de Ohm, I = V/R, puede parecer hoy casi obvia, y sin embargo la publicación 
-                  de su formulación original en 1827 suscitó más recelo que aplauso. Posteriormente la contribución de Ohm se plasmaría en el 
+                  Mientras Ampère investigaba la fuerza en acción entre dos cables eléctricos, el alemán Georg Ohm (16
+                  de marzo de 1789
+                  – 6 de julio de 1854) empleaba las baterías de Volta y artefactos de diseño propio para estudiar cómo
+                  la corriente (I)
+                  variaba en función del voltaje aplicado (V) y la resistencia del circuito (R). Este asunto ya había
+                  interesado a científicos
+                  como Cavendish, que empleaba su cuerpo para cerrar el circuito y experimentar en propia carne la
+                  fuerza del choque eléctrico
+                  en cada caso. La ley que resume los resultados de Ohm, I = V/R, puede parecer hoy casi obvia, y sin
+                  embargo la publicación
+                  de su formulación original en 1827 suscitó más recelo que aplauso. Posteriormente la contribución de
+                  Ohm se plasmaría en el
                   nombre de la unidad de resistencia eléctrica, el ohmio.
                 </p>
               </div>
@@ -257,46 +379,6 @@
     </div>
   </section>
 
-  <!-- CALCULADORA -->
-  <section class="py-5"  style="background-color: #ebc42a;">
-    <h2 class="text-center">Calculadora</h2>
-    <div class="sectioncenter" >
-      <div class="row row-cols-1 row-cols-md-1 g-4">
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <button type="button" class="btn btn-outline-dark">Fuerza eléctrica</button>
-          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Campo eléctrico</button>
-          <button type="button" class="btn btn-outline-dark">Flujo eléctrico</button>      
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Ley de gaus
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-              <li><a class="dropdown-item" href="#">Esfera</a></li>
-              <li><a class="dropdown-item" href="#">Cilindro</a></li>
-              <li><a class="dropdown-item" href="#">Linea de Carga</a></li>
-              <li><a class="dropdown-item" href="#">Lamina</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <button type="button" class="btn btn-outline-dark">Potencial eléctrico</button>
-          <button type="button" class="btn btn-outline-dark">Energía</button>      
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Capacitores
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-              <li><a class="dropdown-item" href="#">Con dieléctrico</a></li>
-              <li><a class="dropdown-item" href="#">Sin dieléctrico</a></li>
-              <li><a class="dropdown-item" href="#">Cilindro</a></li>
-              <li><a class="dropdown-item" href="#">Placas paralelas</a></li>
-              <li><a class="dropdown-item" href="#">Esfera</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -324,13 +406,13 @@
             Kevin García <br>
             Laura Mateus <br>
             Santiago Prieto <br>
-            Jeanpier Ramos
+            Jeanpier Ramos  
           </p>
         </div>
       </div>
     </div>
   </footer>
-  
+
 
   <!-- BOOTSTRAP SCRIPTS -->
   <script src="Assets/js/functions.js"></script>
