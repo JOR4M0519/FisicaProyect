@@ -58,7 +58,7 @@
 
 .initialDiv{
   
-  height: 150vh;
+  height: 100vh;
   width: 97vw;
   padding-bottom: 3%;
   padding-left: 5%;
@@ -72,5 +72,5 @@
 }
 
 .generalDiv{
-  background-color: #ebc42a; width: 100vw; height: 130vh;
+  background-color: #ebc42a; width: 100vw; height: 100vh;
 }
