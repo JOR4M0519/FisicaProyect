@@ -35,51 +35,96 @@
       <h1>Distancia</h1><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="cbc2" value="x10C1/eCarga1/carga1"
+          onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga 1</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="cbc2" value="x10C2/eCarga2/carga2"
+          onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">Carga 2</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="cbf" value="x10F/eFuerza/fuerza"
+          onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Fuerza</label>
       </div><br>
-      
-      <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Carga 1</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-      </div>
-      <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Carga 2</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-      </div>
-      <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Fuerza</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        <span class="input-group-text" id="inputGroup-sizing-sm">N</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-      </div>
-      
-        <button type="button" class="btn btn-dark">Calcular</button><br>
 
-        <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Distancia</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-            <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-          </div>
-     
+      <div class="input-group input-group-sm mb-3" style="padding-left: 20%; padding-right: 20%;">
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Carga 1</span>
+        <input type="text" id="carga1" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
+        <span class="input-group-text" id="x10C1">x10</span>
+        <input type="text" id="eCarga1" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3" style="padding-left: 20%; padding-right: 20%;">
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Carga 2</span>
+        <input type="text" id="carga2" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
+        <span class="input-group-text" id="x10C2">x10</span>
+        <input type="text" id="eCarga2" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3" style="padding-left: 20%; padding-right: 20%;">
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Fuerza</span>
+        <input type="text" id="fuerza" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">N</span>
+        <span class="input-group-text" id="x10F">x10</span>
+        <input type="text" id="eFuerza" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+      </div>
+
+      <button type="button" id="btnResultado" class="btn btn-dark">Calcular</button><br>
+
+      <div class="input-group input-group-sm mb-3" style="padding-left: 20%; padding-right: 20%;">
+        <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Distancia</span>
+        <input type="text" id="resultado" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
+        <span class="input-group-text" id="x10R" >x10 E</span>
+        <input type="text" id="eResultado" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+      </div>
+
     </div>
   </div>
-<div style="width: 50vw; height: 50vh;">
-  <canvas id="myChart" width="30%" height="30%"></canvas>
-</div>
+
+  <script src="./assets/js/checkbox.js"></script>
+  <script>
+
+    document.getElementById('btnResultado').addEventListener('click', function () {
+
+
+
+      const carga1 = parseFloat(document.getElementById('carga1').value);
+      const eCarga1 = parseFloat(document.getElementById('eCarga1').value);
+      const carga2 = parseFloat(document.getElementById('carga2').value);
+      const eCarga2 = parseFloat(document.getElementById('eCarga2').value);
+      const fuerza = parseFloat(document.getElementById('fuerza').value);
+      const eFuerza = parseFloat(document.getElementById('eFuerza').value);
+
+
+
+
+      var distancia =  Math.sqrt(((9*(Math.pow(10, 9)))*(carga1*(Math.pow(10, eCarga1)))*(carga2*(Math.pow(10, eCarga2))))/(fuerza*(Math.pow(10, eFuerza))));
+
+      if (isNaN(distancia) == true) {
+        alert('Error datos incorrectos ');
+      } else {
+
+        var exponencial = parseFloat(distancia).toExponential(5);
+        var resultado = exponencial.split('e');
+
+        document.getElementById('resultado').value = resultado[0];
+        document.getElementById('eResultado').value = resultado[1];
+
+      }
+
+
+    });
+  </script>
 </body>

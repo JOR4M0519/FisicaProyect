@@ -71,7 +71,7 @@
               <ul class="feat-show show">
                 <li><a href="#" id="fuerzaelectrica">Fuerza Eléctrica</a></li>
                 <li><a href="#" id="cargaelectrica">Carga Eléctrica</a></li>
-                <li><a href="#">Distancia</a></li>
+                <li><a href="#" id="distancia">Distancia</a></li>
                 <li>
                   <a href="#" class="fourth-btn">Campo Electrico
                     <span class="fas fa-caret-down fourth" ></span>
@@ -148,6 +148,13 @@
         document.getElementById('frame').src = "./cargaelectrica.html";
       }
     );
+
+    $('#distancia').click(
+      function () {
+        document.getElementById('frame').src = "./distancia.html";
+      }
+    );
+
 
     $('.btn').click(function () {
       $(this).toggleClass("click");
