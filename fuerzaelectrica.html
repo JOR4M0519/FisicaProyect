@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EZPhysic</title>
+  <link rel="shortcut icon" href="assets/img/logoico.ico">
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="assets/styles/index.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+
+
+</head>
+
+<body>
+  <div style="padding-top: 0%;" class="generalDiv">
+    <div
+      style="width: 100%; height: 100%; align-items: center; display: flex; flex-direction: column; justify-content: center;">
+
+
+
+      <h1>Fuerza Eléctrica</h1>
+      <br>
+      <h4>Coordenadas </h4><br>
+      <h5>Notación Científica</h5><br>
+      <div style=" display: flex; flex-direction: row;">
+        <p> Carga 1(x): <input type="checkbox" id="cbp1x" value="pp1x" onclick="checkbox(this)" checked> 
+            Carga 1(y): <input type="checkbox" id="cbp1y" value="pp1y" onclick="checkbox(this)" checked>
+            Carga 2(x): <input type="checkbox" id="cbp2x" value="pp2x" onclick="checkbox(this)" checked> 
+            Carga 2(y): <input type="checkbox" id="cbp2y" value="pp2y" onclick="checkbox(this)" checked>
+        </p>
+      </div><br>
+      
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 1 (x): <input type="text" id="p1x"> <p id="pp1x"> x10 <sup><input type="text" id="ep1x"></sup></p> m</p>
+      </div>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 1 (y): <input type="text" id="p1y"> <p id="pp1y">  x10 <sup><input type="text" id="ep1y"></sup> </p> m</p>
+      </div>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 2 (x): <input type="text" id="p2x"> <p id="pp2x"> x10 <sup><input type="text" id="ep2x"></sup> </p> m</p>
+      </div>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 2 (y): <input type="text" id="p2y"> <p id="pp2y"> x10 <sup><input type="text" id="ep2y"></sup></p> m</p>
+      </div><br>
+      <h4>Cargas </h4><br>
+      <h5>Notación Científica</h5><br>
+      <div style=" display: flex; flex-direction: row;">
+        <p> Carga 1(x): <input type="checkbox" id="cbc1x" value="pc1x" onclick="checkbox(this)" checked> 
+            Carga 1(y): <input type="checkbox" id="cbc1y" value="pc2x" onclick="checkbox(this)" checked>
+        </p>
+      </div><br>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 1: <input type="text" id="c1x"> <p id="pc1x"> x10 <sup><input type="text" id="ec1x"></sup></p> C</p>
+      </div>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Carga 2: <input type="text" id="c2x"> <p id="pc2x">  x10 <sup><input type="text" id="ec2x"></sup> </p> C</p>
+      </div><br>
+      <input type="button"  id="btnResultado"value="Calcular" style="width: 10%;"><br>
+      <div style=" display: flex; flex-direction: row;">
+        <p>Resultado: <input type="text" id="resultado">  x10 <sup><input type="text" id="eResultado"> </sup> N</p>
+      </div>
+
+     
+    </div>
+  </div>
+<div style="width: 50vw; height: 50vh;">
+  <canvas id="myChart" width="30%" height="30%"></canvas>
+</div>
+
+</script>
+
+  <script>
+
+    function checkbox(checkbox) {
+
+      var ids = checkbox.value
+      var letter0 = ids.charAt(1);
+      var letter1 = ids.charAt(2);
+      var letter2 = ids.charAt(3);
+      
+      
+      if (checkbox.checked) {
+        document.getElementById(ids).innerHTML=`x10 <sup><input type="text" id="e${letter0}${letter1}${letter2}">`;
+          
+      } else {
+        document.getElementById(ids).innerHTML=`<input type="hidden" id="e${letter0}${letter1}${letter2}" value=0>`;
+      }
+    }
+
+    document.getElementById("btnResultado").addEventListener('click',function(){
+
+    
+            try{
+
+            eDistancia1x = parseFloat(document.getElementById('ep1x').value);
+            eDistancia2x = parseFloat(document.getElementById('ep2x').value);
+            eDistancia1y = parseFloat(document.getElementById('ep1y').value);
+            eDistancia2y = parseFloat(document.getElementById('ep2y').value);
+            distancia1x = parseFloat(document.getElementById('p1x').value);
+            distancia2x = parseFloat(document.getElementById('p2x').value);
+            distancia1y = parseFloat(document.getElementById('p1y').value);
+            distancia2y = parseFloat(document.getElementById('p2y').value);
+            eCarga1 = parseFloat(document.getElementById('ec1x').value);
+            eCarga2 = parseFloat(document.getElementById('ec2x').value);
+            carga1 = parseFloat(document.getElementById('c1x').value);
+            carga2 = parseFloat(document.getElementById('c2x').value);
+
+            
+            x1 = distancia1x* Math.pow(10,eDistancia1x); 
+            x2 = distancia2x* Math.pow(10,eDistancia2x); 
+            y1 = distancia1y* Math.pow(10,eDistancia1y); 
+            y2 = distancia2y* Math.pow(10,eDistancia2y); 
+           
+
+            const distanciaEntrePuntos = Math.sqrt((Math.pow((x2-x1), 2))+(Math.pow((y2-y1), 2)));
+            const fuerza = ((9*(Math.pow(10, 9)))*(carga1*(Math.pow(10, eCarga1)))*(carga2*(Math.pow(10, eCarga2))))/(Math.pow(distanciaEntrePuntos, 2));
+
+            var exponencial = parseFloat(fuerza).toExponential(3);
+            var resultado = exponencial.split('e');
+          
+
+             document.getElementById('resultado').value=resultado[0];
+             document.getElementById('eResultado').value=resultado[1];
+              }
+              catch(error){
+                alert('error');
+              }
+            
+
+            
+    });
+
+    
+
+  </script>
+</body>

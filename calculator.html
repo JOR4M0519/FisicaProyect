@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EZPhysic</title>
+  <link rel="shortcut icon" href="assets/img/logoico.ico">
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="assets/styles/index.css">
+  <link rel="stylesheet" href="assets/styles/calculator.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1c1c1c ;">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logo.png" style="width: 20%;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./calculator.html">Calculadora</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#leyesf">Leyes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#fisicos">Físicos</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="padding-top: 3%; padding-bottom: 3%;"></div>
+  <div style="padding-top: 3%; text-align: center; "><h1>Calculadora</h1></div>
+
+  <!-- CALCULADORA -->
+  <section class="py-5 " id="calc" style="background-color: #ffffff;">
+
+
+    <div class="initialDiv">
+      <div style="width: 25%; height: 100%; background-color: #1e1e1e;" >
+        <nav class="sidebar" >
+          <div class="text">Funciones</div>
+          <ul>
+            <li>
+              <a href="#" class="feat-btn">Ley de Coulomb
+                <span class="fas fa-caret-down first" ></span>
+              </a>
+              <ul class="feat-show show">
+                <li><a href="#" id="fuerzaelectrica">Fuerza Eléctrica</a></li>
+                <li><a href="#">Carga Eléctrica</a></li>
+                <li><a href="#">Distancia</a></li>
+                <li>
+                  <a href="#" class="fourth-btn">Campo Electrico
+                    <span class="fas fa-caret-down fourth" ></span>
+                  </a>
+                  <ul class="fourth-show show3">
+                    <li><a href="#" id="fuerzaelectrica">&nbsp;&nbsp;- General</a></li>
+                    <li><a href="#">&nbsp;&nbsp;- Varilla</a></li>
+                    <li><a href="#">&nbsp;&nbsp;- Anillo</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="serv-btn ">Ley de Gauss
+                <span class="fas fa-caret-down second"></span>
+              </a>
+              <ul class="serv-show show1">
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">App Design</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="third-btn">Ley de Gauss
+                <span class="fas fa-caret-down third"></span>
+              </a>
+              <ul class="third-show show2">
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">App Design</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div style="width: 75%; height: 100%">
+        <iframe id="frame" src="./welcomeCalculator.html" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+
+  </section>
+
+  <footer style="background-color: #1c1c1c;">
+    <div class="container p-3">
+      <div class="row text-center text-white">
+        <div class="col ml-auto">
+          <p>Copyright &copy; 2022 <br>
+            Kevin García <br>
+            Laura Mateus <br>
+            Santiago Prieto <br>
+            Jeanpier Ramos
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+    $('#fuerzaelectrica').click(
+      function () {
+        document.getElementById('frame').src = "./fuerzaelectrica.html";
+      }
+    );
+
+    $('.btn').click(function () {
+      $(this).toggleClass("click");
+      $('.sidebar').toggleClass("show");
+    });
+    $('.feat-btn').click(function () {
+      $('nav ul .feat-show').toggleClass("show");
+      $('nav ul .first').toggleClass("rotate");
+    });
+    $('.serv-btn').click(function () {
+      $('nav ul .serv-show').toggleClass("show1");
+      $('nav ul .second').toggleClass("rotate");
+    });
+    $('.third-btn').click(function () {
+      $('nav ul .third-show').toggleClass("show2");
+      $('nav ul .third').toggleClass("rotate");
+    });
+    $('.fourth-btn').click(function () {
+      $('nav ul .fourth-show').toggleClass("show3");
+      $('nav ul .fourth').toggleClass("rotate");
+    });
+    $('nav ul li').click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+  </script>
+
+  <!-- BOOTSTRAP SCRIPTS -->
+
+  <script src="Assets/js/functions.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
