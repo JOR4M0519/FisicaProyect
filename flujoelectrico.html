@@ -35,46 +35,89 @@
       <h1>Flujo Electrico</h1><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc"
+          value="x10C/eCampo/campo" onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Campo</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" id="cba"
+          value="x10A/eArea/area" onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">Area</label>
       </div><br>
-      
+
       <h3>Datos</h3>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="campo" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="x10C">x10</span>
+        <input type="text" id="eCampo" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Area</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="area" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">m²</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="x10A">x10</span>
+        <input type="text" id="eArea" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Angulo Θ</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="angulo" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">°</span>
       </div>
-      
-        <button type="button" class="btn btn-dark">Calcular</button><br>
 
-        <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-            <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
-          </div>
-     
+      <button type="button" id="btnResultado" class="btn btn-dark">Calcular</button><br>
+
+      <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
+        <input type="text" id="resultado" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
+        <span class="input-group-text" id="x10R">x10 E</span>
+        <input type="text" id="eResultado" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm">
+      </div>
+
     </div>
   </div>
-<div style="width: 50vw; height: 50vh;">
-  <canvas id="myChart" width="30%" height="30%"></canvas>
-</div>
+
+  <script src="./assets/js/checkbox.js"></script>
+  <script>
+
+    function radians(degrees) {
+      var pi = Math.PI;
+      return degrees * (pi / 180);
+    }
+
+    document.getElementById('btnResultado').addEventListener('click', function () {
+
+
+      const campo = parseFloat(document.getElementById('campo').value);
+      const eCampo = parseFloat(document.getElementById('eCampo').value);
+      const area = parseFloat(document.getElementById('area').value);
+      const eArea = parseFloat(document.getElementById('eArea').value);
+      const angulo = parseFloat(document.getElementById('angulo').value);
+
+
+      var flujo = (campo * Math.pow(10, eCampo)) * (area * Math.pow(10, eArea)) * (Math.cos(radians(angulo)));
+
+      if (isNaN(flujo) == true) {
+        alert('Error datos incorrectos ');
+      } else {
+
+        var exponencial = parseFloat(flujo).toExponential(5);
+        var resultado = exponencial.split('e');
+
+        document.getElementById('resultado').value = resultado[0];
+        document.getElementById('eResultado').value = resultado[1];
+
+      }
+
+    });
+  </script>
 </body>
