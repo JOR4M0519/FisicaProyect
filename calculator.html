@@ -73,11 +73,11 @@
                 <li><a href="#" id="cargaelectrica">Carga Eléctrica</a></li>
                 <li><a href="#" id="distancia">Distancia</a></li>
                 <li>
-                  <a href="#" class="fourth-btn">Campo Electrico
+                  <a href="#" class="fourth-btn">Campo Eléctrico
                     <span class="fas fa-caret-down fourth" ></span>
                   </a>
                   <ul class="fourth-show show3">
-                    <li><a href="#" id="fuerzaelectrica">&nbsp;&nbsp;- General</a></li>
+                    <li><a href="#" id="CEGeneral">&nbsp;&nbsp;- General</a></li>
                     <li><a href="#">&nbsp;&nbsp;- Varilla</a></li>
                     <li><a href="#">&nbsp;&nbsp;- Anillo</a></li>
                   </ul>
@@ -89,6 +89,7 @@
                 <span class="fas fa-caret-down second"></span>
               </a>
               <ul class="serv-show show1">
+                <li><a href="#" id="flujoelectrico">Flujo Eléctrico</a></li>
                 <li><a href="#">Esfera</a></li>
                 <li><a href="#">Cilindro</a></li>
                 <li><a href="#">Linea de carga</a></li>
@@ -151,6 +152,18 @@
     $('#distancia').click(
       function () {
         document.getElementById('frame').src = "./distancia.html";
+      }
+    );
+
+    $('#flujoelectrico').click(
+      function () {
+        document.getElementById('frame').src = "./flujoelectrico.html";
+      }
+    );
+
+    $('#CEGeneral').click(
+      function () {
+        document.getElementById('frame').src = "./CEGeneral.html";
       }
     );
 
