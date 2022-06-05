@@ -29,7 +29,7 @@
   <!-- NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1c1c1c ;">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.html">
         <img src="assets/img/logo.png" style="width: 20%;">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -73,13 +73,13 @@
                 <li><a href="#" id="cargaelectrica">Carga Eléctrica</a></li>
                 <li><a href="#" id="distancia">Distancia</a></li>
                 <li>
-                  <a href="#" class="fourth-btn">Campo Electrico
+                  <a href="#" class="fourth-btn">Campo Eléctrico
                     <span class="fas fa-caret-down fourth" ></span>
                   </a>
                   <ul class="fourth-show show3">
-                    <li><a href="#" id="fuerzaelectrica">&nbsp;&nbsp;- General</a></li>
-                    <li><a href="#">&nbsp;&nbsp;- Varilla</a></li>
-                    <li><a href="#">&nbsp;&nbsp;- Anillo</a></li>
+                    <li><a href="#" id="CEGeneral">&nbsp;&nbsp;- General</a></li>
+                    <li><a href="#" id="CEVarilla">&nbsp;&nbsp;- Varilla</a></li>
+                    <li><a href="#" id="CEAnillo">&nbsp;&nbsp;- Anillo</a></li>
                   </ul>
                 </li>
               </ul>
@@ -89,6 +89,7 @@
                 <span class="fas fa-caret-down second"></span>
               </a>
               <ul class="serv-show show1">
+                <li><a href="#" id="flujoelectrico">Flujo Eléctrico</a></li>
                 <li><a href="#">Esfera</a></li>
                 <li><a href="#">Cilindro</a></li>
                 <li><a href="#">Linea de carga</a></li>
@@ -154,7 +155,29 @@
       }
     );
 
+    $('#flujoelectrico').click(
+      function () {
+        document.getElementById('frame').src = "./flujoelectrico.html";
+      }
+    );
 
+    $('#CEGeneral').click(
+      function () {
+        document.getElementById('frame').src = "./CEGeneral.html";
+      }
+    );
+    $('#CEVarilla').click(
+      function () {
+        document.getElementById('frame').src = "./CEVarilla.html";
+      }
+    );
+    $('#CEAnillo').click(
+      function () {
+        document.getElementById('frame').src = "./CEAnillo.html";
+      }
+    );
+
+      
     $('.btn').click(function () {
       $(this).toggleClass("click");
       $('.sidebar').toggleClass("show");
