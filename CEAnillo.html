@@ -36,54 +36,81 @@
       <h1>Campo Electrico Anillo</h1><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc" value="x10C/eCarga/carga"
+        onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" id="cbx" value="x10X/eX/x"
+        onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">x</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cba" value="x10A/eA/a"
+        onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">a</label>
       </div><br>
       
       <h3>Datos</h3>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Carga</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="carga" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="x10C">x10</span>
+        <input type="text" id="eCarga" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">x</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="x" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="x10X">x10</span>
+        <input type="text" id="eX" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">a</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <span class="input-group-text" id="x10A">x10</span>
+        <input type="text" id="eA" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
       
-        <button type="button" class="btn btn-dark">Calcular</button><br>
+        <button type="button" id="btnResultado" class="btn btn-dark">Calcular</button><br>
 
         <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
             <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+            <input type="text" class="form-control" id="resultado" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
             <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
             <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+            <input type="text" class="form-control" id="eResultado" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+            
           </div>
      
     </div>
   </div>
-<div style="width: 50vw; height: 50vh;">
-  <canvas id="myChart" width="30%" height="30%"></canvas>
-</div>
+  <script src="./assets/js/checkbox.js"></script>
+  <script>
+    document.getElementById('btnResultado').addEventListener('click',function(){
+
+      var carga = parseFloat(document.getElementById('carga').value);
+      var eCarga = parseFloat(document.getElementById('eCarga').value);
+      var x = parseFloat(document.getElementById('x').value);
+      var eX = parseFloat(document.getElementById('eX').value);
+      var a = parseFloat(document.getElementById('a').value);
+      var eA = parseFloat(document.getElementById('eA').value);
+
+      var campo = ((9*(Math.pow(10, 9)))*(carga*(Math.pow(10, eCarga)))*(x*(Math.pow(10, eX))))/(Math.pow(((Math.pow(a*Math.pow(10, eA),2))+(Math.pow(x*Math.pow(10, eX),2))),(1.5)));
+      
+      if(isNaN(campo)==false){
+      var exponencial = parseFloat(campo).toExponential(5);
+      var resultado = exponencial.split('e');
+
+      document.getElementById('resultado').value= resultado[0];
+      document.getElementById('eResultado').value= resultado[1];
+      }
+      else{
+        alert('Datos incorrectos, digite de nuevo')
+      }
+
+    });
+  </script>
 </body>

@@ -78,8 +78,8 @@
                   </a>
                   <ul class="fourth-show show3">
                     <li><a href="#" id="CEGeneral">&nbsp;&nbsp;- General</a></li>
-                    <li><a href="#">&nbsp;&nbsp;- Varilla</a></li>
-                    <li><a href="#">&nbsp;&nbsp;- Anillo</a></li>
+                    <li><a href="#" id="CEVarilla">&nbsp;&nbsp;- Varilla</a></li>
+                    <li><a href="#" id="CEAnillo">&nbsp;&nbsp;- Anillo</a></li>
                   </ul>
                 </li>
               </ul>
@@ -166,8 +166,18 @@
         document.getElementById('frame').src = "./CEGeneral.html";
       }
     );
+    $('#CEVarilla').click(
+      function () {
+        document.getElementById('frame').src = "./CEVarilla.html";
+      }
+    );
+    $('#CEAnillo').click(
+      function () {
+        document.getElementById('frame').src = "./CEAnillo.html";
+      }
+    );
 
-
+      
     $('.btn').click(function () {
       $(this).toggleClass("click");
       $('.sidebar').toggleClass("show");
