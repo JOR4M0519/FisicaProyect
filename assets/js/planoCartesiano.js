@@ -12,7 +12,7 @@ const puntos = [];
 
 const paintPoint = (cursorX, cursorY) => {
 
-    
+
     // var svgElement = document.getElementById('cinema');
     // let { width, height } = svgElement.getBBox();
 
@@ -75,6 +75,8 @@ function paintObject(X, Y) {
 
 
 const generateCartesianPlain = () => {
+
+    const svg = document.getElementById("plain");
 
     let scalex = d3.scaleLinear().domain([-100, 100]).range([0, 800]);
     let scaley = d3.scaleLinear().domain([-80, 80]).range([0, 650]);

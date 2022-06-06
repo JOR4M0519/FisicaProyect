@@ -28,43 +28,29 @@
 </head>
 
 <body>
-  <div style="padding-top: 0%;">
+  <div style="padding-top: 0%;" >
     <div
       style="width: 100%; height: 100%; align-items: center; display: flex; flex-direction: column; justify-content: center;">
 
 
 
       <h1>Ley de Gauss</h1><br>
-      <h2>Campo Eléctrico Cilindro</h2><br>
 
       <div class="input-group input-group-sm mb-3"
-        style="padding-left: 15%; padding-right: 15%; padding-left: 15%;padding-right: 15%;align-items: center;display: flex;flex-direction: row;justify-content: center;">
-        <div
-          style="display: flex; text-align:center; flex-direction: column; justify-content: center; margin-right: 5%;">
-          <div class="form-check form-switch">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Carga</label>
-            <label class="switch">
-              <input type="checkbox" id="cbc">
-              <span class="slider round"></span>
-            </label>
-            <label class="form-check-label" for="flexSwitchCheckDefault">D. Superficial</label>
-          </div>
-        </div>
-      </div><br>
-      <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">r</span>
-        <input type="text" id="r" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm">
-        <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        <span class="input-group-text" id="x10r">x10</span>
-        <input type="text" id="er" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm">
-        <div class="form-check form-switch" style="margin-left: 1%;">
-          <input class="form-check-input" type="checkbox" role="switch" id="cb1" value="x10r/er/r"
-            onclick="checkbox(this)" checked>
-          <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
+      style="padding-left: 15%; padding-right: 15%; padding-left: 15%;padding-right: 15%;align-items: center;display: flex;flex-direction: row;justify-content: center;">
+      <div
+        style="display: flex; text-align:center; flex-direction: column; justify-content: center; margin-right: 5%;">
+        <div class="form-check form-switch">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Carga</label>
+          <label class="switch">
+            <input type="checkbox" id="cbc">
+            <span class="slider round"></span>
+          </label>
+          <label class="form-check-label" for="flexSwitchCheckDefault">D. Lineal</label>
         </div>
       </div>
+    </div><br>
+      <h2>Campo Electrico Lamina</h2><br>
       <div class="input-group input-group-sm mb-3" id="divLongitud" style="padding-left: 15%; padding-right: 15%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">L</span>
         <input type="text" id="longitud" class="form-control" aria-label="Sizing example input"
@@ -93,48 +79,41 @@
           <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
         </div>
       </div>
+      
+        <button type="button" id="btnResultado" class="btn btn-dark">Calcular</button><br>
 
-      <button type="button" id="btnResultado" class="btn btn-dark">Calcular</button><br>
-
-      <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
-        <input type="text" id="resultado" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" disabled>
-        <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
-        <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
-        <input type="text" id="eResultado" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" disabled>
-
-      </div>
-
+        <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%;">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
+            <input type="text" id="resultado" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+            <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
+            <span class="input-group-text" id="inputGroup-sizing-sm">x10</span>
+            <input type="text" id="eResultado" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+          </div>
+     
     </div>
   </div>
-
-
-
   <script>
 
     var checkboxCil = document.getElementById('cbc');
 
     document.getElementById('btnResultado').addEventListener('click', function () {
 
-      var radio = parseFloat(document.getElementById('r').value);
-      radio = radio*Math.pow(10,(parseFloat(document.getElementById('er').value)));
+
       var carga = parseFloat(document.getElementById('carga').value);
       carga = carga*Math.pow(10,(parseFloat(document.getElementById('eCarga').value)));
-      var densidadLineal = carga;
+      var densidadSuperficial = carga;
       var epsilon = (8.85 * (Math.pow(10, -12)));
       var campo = 0;
 
       if (checkboxCil.checked) {
 
-        campo = densidadLineal / (Math.PI * Math.pow(radio, 2) * epsilon);
-
+        campo = densidadSuperficial/(2*epsilon);
+        
       } else {
 
         var longitud = parseFloat(document.getElementById('longitud').value);
         longitud = longitud*Math.pow(10,(parseFloat(document.getElementById('eLongitud').value)));
-        campo = carga / (Math.PI * Math.pow(radio, 2) * longitud * epsilon);
+        campo = carga/(2*Math.pow(longitud, 2)*epsilon); 
       }
 
       if (isNaN(campo) == true) {
@@ -158,8 +137,8 @@
       if (checkboxCil.checked) {
 
         document.getElementById('divLongitud').innerHTML = ``;
-        document.getElementById('cargaSpan').innerHTML = "λ";
-        document.getElementById('unidadesCarga').innerHTML = `C/m `;
+        document.getElementById('cargaSpan').innerHTML = "σ";
+        document.getElementById('unidadesCarga').innerHTML = `C/m <sup>2</sup>`;
 
 
       } else {
@@ -187,5 +166,5 @@
     });
 
   </script>
-  <script src="./assets/js/checkbox.js"></script>
+<script src="./assets/js/checkbox.js"></script>
 </body>
