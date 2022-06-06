@@ -82,6 +82,9 @@ nav ul .fourth-show.show{
 nav ul .five-show.show{
   display: block;
 }
+nav ul .six-show.show{
+  display: block;
+}
 nav ul ul li{
   line-height: 42px;
   border-top: none;
