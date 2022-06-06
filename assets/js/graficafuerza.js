@@ -258,11 +258,11 @@ function drawGraph (punto_1,punto_2) {
         let currentMouseX = event.clientX;
         let currentMouseY = event.clientY;
 
-        if (drag) {
-            offsetX = mouseX - currentMouseX;
-            offsetY = mouseY - currentMouseY;
-            drawScreen();
-        }
+        // if (drag) {
+        //     offsetX = mouseX - currentMouseX;
+        //     offsetY = mouseY - currentMouseY;
+        //     drawScreen();
+        // }
     }
 
     canvas.onmouseup = function (event) {

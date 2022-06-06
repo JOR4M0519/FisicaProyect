@@ -38,22 +38,22 @@
       <h4>Coordenadas </h4><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbp1x" value="pp1x"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbp1x" value="pp1x/ep1x"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga 1 (x)</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbp1y" value="pp1y"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbp1y" value="pp1y/ep1y"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">Carga 1 (y)</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbp2x" value="pp2x"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbp2x" value="pp2x/ep2x"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga 2 (x)</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbp2y" value="pp2y"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbp2y" value="pp2y/ep2y"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga 2 (y)</label>
       </div><br>
@@ -61,28 +61,28 @@
       <h3>Datos</h3>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Carga 1 (x)</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p1x">
+        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p1x">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
         <span class="input-group-text" id="pp1x">x10</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="ep1x">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Carga 1 (y)</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p1y">
+        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p1y">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
         <span class="input-group-text" id="pp1y">x10</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="ep1y">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Carga 2 (x)</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p2x">
+        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p2x">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
         <span class="input-group-text" id="pp2x">x10</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="ep2x">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Carga 2 (y)</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p2y">
+        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="p2y">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
         <span class="input-group-text" id="pp2y">x10</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="ep2y">
@@ -90,12 +90,12 @@
       <h4>Cargas </h4><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbc1x" value="pc1x"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbc1x" value="pc1x/ec1x"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Carga 1 (x)</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbc1y" value="pc2x"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbc1y" value="pc2x/ec2x"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">Carga 1 (y)</label>
       </div><br>
@@ -116,7 +116,7 @@
       
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-dark" id="btnResultado">Calcular</button>
-        <button type="button" disabled="disabled"  id="showGraphic" class="btn btn-dark" id="btnResultado" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Ver gráfica</button>
+        <button type="button" id="showGraphic" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Ver gráfica</button>
       </div><br>
 
       <!-- Modal -->
