@@ -83,7 +83,26 @@
         <button type="button" id="addCarga" class="btn btn-dark">Añadir Carga</button>
         <button type="button" id="deleteCarga" class="btn btn-dark">Eliminar Carga</button>
         <button type="button" id="btnResultado" class="btn btn-dark">Resultado</button>
+        <button type="button" disabled="disabled" id="showGraphic" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver gráfica</button>
       </div><br><br>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="staticBackdropLabel">Gráfica</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <canvas id="canvas" style="width: 100%;"></canvas>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
@@ -99,8 +118,12 @@
   </div>
 
   <script src="./assets/js/checkbox.js"> </script>
+  <script src="./assets/js/graficaCampo.js" ></script>
 
   <script>
+  let punto = {x: x1,y: y1};
+  let cargas = [];
+
     document.getElementById('addCarga').addEventListener('click', function () {
 
 
@@ -147,11 +170,15 @@
       var campoY = 0;
       var x1 = document.getElementById('xp1').value;
       var y1 = document.getElementById('yp1').value;
-
+      
+      punto.x = x1;
+      punto.y = y1;
+      
       for (var i = 1; i <= parseInt(document.getElementById('cantidadCargas').value); i++) {
 
         var x2 = document.getElementById(`x${i}`).value;
         var y2 = document.getElementById(`y${i}`).value;
+
         var distancia = Math.sqrt((Math.pow((x2 - x1), 2)) + (Math.pow((y2 - y1), 2)));
 
         var carga1 = document.getElementById(`carga${i}`).value;
@@ -159,20 +186,27 @@
 
         var campo = ((9 * (Math.pow(10, 9))) * (carga1 * (Math.pow(10, eCarga)))) / (Math.pow(distancia, 2));
 
-        campoX += (campo * ((Math.abs(x2 - x1)) / distancia));
-        campoY += (campo * ((Math.abs(y2 - y1)) / distancia));
+        let campoXC = (campo * ((Math.abs(x2 - x1)) / distancia));
+        let campoYC =(campo * ((Math.abs(y2 - y1)) / distancia));
+
+        campoX += campoXC;
+        campoY += campoYC;
+
+        cargas.push({campoC: campo, x: x2, y: y2});
 
       }
 
       var campo = Math.sqrt((Math.pow(campoX, 2)) + (Math.pow(campoY, 2)));
 
-      if (isNaN(campo) == true) { alert('Error, datos invalidos') } else {
+    if (isNaN(campo) == true) { alert('Error, datos invalidos') 
+    } else {
 
         var exponencial = parseFloat(campo).toExponential(5);
         var resultado = exponencial.split('e');
 
         document.getElementById('resultado').value = resultado[0];
         document.getElementById('eResultado').value = resultado[1];
+        document.getElementById('showGraphic').disabled = false;
       }
 
     });
@@ -188,5 +222,10 @@
         document.getElementById('cantidadCargas').value = parseInt(num) - 1;
       }
     });
+
+    document.getElementById("showGraphic").addEventListener('click',function(){
+      drawGraph(cargas,punto); 
+    })
+
   </script>
 </body>
