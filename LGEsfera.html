@@ -36,9 +36,8 @@
 
       <h1>Campo Eléctrico Esfera</h1><br>
 
-      <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%;">
-        <div
-          style="display: flex; text-align:center; flex-direction: column; justify-content: center; margin-right: 5%;">
+      <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%; padding-left: 15%;padding-right: 15%;align-items: center;display: flex;flex-direction: row;justify-content: center;">
+        <div style="display: flex; text-align:center; flex-direction: column; justify-content: center; margin-right: 5%;">
           <div class="form-check form-switch">
             <label class="form-check-label" for="flexSwitchCheckDefault">Interna</label>
             <label class="switch">
@@ -126,13 +125,11 @@
           var eR2 = parseFloat(document.getElementById('eR2').value);
 
 
-          if ((r2 * Math.pow(10, eR2)) > (r1 * Math.pow(10, eR1))) {
+          if ((r1 * Math.pow(10, eR1)) < (r2 * Math.pow(10, eR2))) {
 
             if (checkboxCarga.checked) {
 
-
-
-              var campo = ((carga * (Math.pow(10, eCarga))) * (Math.pow((r2 * (Math.pow(10, eR2))), 3))) / (3 * (r1 * (Math.pow(10, eR1))) * (8.85 * (Math.pow(10, -12))));
+              var campo = ((carga * (Math.pow(10, eCarga))) * (Math.pow((r1 * (Math.pow(10, eR1))), 3))) / (3 * (Math.pow((r2 * (Math.pow(10, eR2))),2)) * (8.85 * (Math.pow(10, -12))));
 
               if (isNaN(campo) == true) {
 
