@@ -26,6 +26,8 @@
 </head>
 
 <body>
+  <input type="hidden" id="show" value=".feat-show">
+  <input type="hidden" id="rotate" value=".first">
   <!-- NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1c1c1c ;">
     <div class="container">
@@ -59,53 +61,62 @@
   <section class="py-5 " id="calc" style="background-color: #ffffff;">
 
 
-    <div class="initialDiv">
+    <div class="initialDiv" id="functions">
       <div style="width: 25%; height: 100%; background-color: #1e1e1e;" >
         <nav class="sidebar" >
           <div class="text">Funciones</div>
           <ul>
             <li>
-              <a href="#" class="feat-btn">Ley de Coulomb
+              <a href="#h" class="feat-btn">Ley de Coulomb
                 <span class="fas fa-caret-down first" ></span>
               </a>
               <ul class="feat-show show">
-                <li><a href="#" id="fuerzaelectrica">Fuerza Eléctrica</a></li>
-                <li><a href="#" id="cargaelectrica">Carga Eléctrica</a></li>
-                <li><a href="#" id="distancia">Distancia</a></li>
+                <li><a class="textMenu" id="fuerzaelectrica">Fuerza Eléctrica</a></li>
+                <li><a class="textMenu" id="cargaelectrica">Carga Eléctrica</a></li>
+                <li><a class="textMenu" id="distancia">Distancia</a></li>
                 <li>
-                  <a href="#" class="fourth-btn">Campo Eléctrico
+                  <a class="textMenu" class="fourth-btn">Campo Eléctrico
                     <span class="fas fa-caret-down fourth" ></span>
                   </a>
-                  <ul class="fourth-show show3">
-                    <li><a href="#" id="CEGeneral">&nbsp;&nbsp;- General</a></li>
-                    <li><a href="#" id="CEVarilla">&nbsp;&nbsp;- Varilla</a></li>
-                    <li><a href="#" id="CEAnillo">&nbsp;&nbsp;- Anillo</a></li>
+                  <ul class="fourth-show">
+                    <li><a class="textMenu" id="CEGeneral">&nbsp;&nbsp;- General</a></li>
+                    <li><a class="textMenu" id="CEVarilla">&nbsp;&nbsp;- Varilla</a></li>
+                    <li><a class="textMenu" id="CEAnillo">&nbsp;&nbsp;- Anillo</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#" class="serv-btn ">Ley de Gauss
-                <span class="fas fa-caret-down second"></span>
+              <a href="#h" class="serv-btn ">Ley de Gauss
+                <span class="fas fa-caret-down second rotate"></span>
               </a>
-              <ul class="serv-show show1">
-                <li><a href="#" id="flujoelectrico">Flujo Eléctrico</a></li>
-                <li><a href="#" id="LGEsfera">Campo Esfera</a></li>
-                <li><a href="#" id="LGLamina">Campo Lamina</a></li>
-                <li><a href="#" id="LGCilindro">Campo Cilindro</a></li>
+              <ul class="serv-show">
+                <li><a class="textMenu" id="flujoelectrico">Flujo Eléctrico</a></li>
+                <li><a class="textMenu" id="LGEsfera">Campo Esfera</a></li>
+                <li><a class="textMenu" id="LGLamina">Campo Lamina</a></li>
+                <li><a class="textMenu" id="LGCilindro">Campo Cilindro</a></li>
 
               </ul>
             </li>
             <li>
-              <a href="#" class="third-btn">Ley de Gauss
-                <span class="fas fa-caret-down third"></span>
+              <a href="#h" class="five-btn">Energia y Potencial Eléctrico
+                <span class="fas fa-caret-down five rotate"></span>
               </a>
-              <ul class="third-show show2">
-                <li><a href="#">App Design</a></li>
-                <li><a href="#">Web Design</a></li>
-                <li><a href="#">App Design</a></li>
-                <li><a href="#">Web Design</a></li>
-                <li><a href="#">App Design</a></li>
+              <ul class="five-show">
+                <li><a class="textMenu" id="energiaelectrica">Energia</a></li>
+                <li><a class="textMenu" id="PotencialEEnergia">Potencial</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#h" class="third-btn">Ley de Ohm
+                <span class="fas fa-caret-down third rotate"></span>
+              </a>
+              <ul class="third-show">
+                <li><a class="textMenu">App Design</a></li>
+                <li><a class="textMenu">Web Design</a></li>
+                <li><a class="textMenu">App Design</a></li>
+                <li><a class="textMenu">Web Design</a></li>
+                <li><a class="textMenu">App Design</a></li>
               </ul>
             </li>
           </ul>
@@ -136,6 +147,7 @@
 
 
   <script>
+    
 
     $('#fuerzaelectrica').click(
       function () {
@@ -191,26 +203,58 @@
         document.getElementById('frame').src = "./LGLamina.html";
       }
     );
+    $('#PotencialEEnergia').click(
+      function () {
+        document.getElementById('frame').src = "./PotencialEEnergia.html";
+      }
+    );
+    $('#energiaelectrica').click(
+      function () {
+        document.getElementById('frame').src = "./energiaelectrica.html";
+      }
+    );
 
     $('.btn').click(function () {
       $(this).toggleClass("click");
       $('.sidebar').toggleClass("show");
     });
     $('.feat-btn').click(function () {
+
       $('nav ul .feat-show').toggleClass("show");
       $('nav ul .first').toggleClass("rotate");
+     
+      $(`nav ul ${document.getElementById('show').value}`).toggleClass("show");
+      $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
+      document.getElementById('show').value = ".feat-show";
+      document.getElementById('rotate').value = ".first";
     });
     $('.serv-btn').click(function () {
-      $('nav ul .serv-show').toggleClass("show1");
+      $('nav ul .serv-show').toggleClass("show");
       $('nav ul .second').toggleClass("rotate");
+      $(`nav ul ${document.getElementById('show').value}`).toggleClass("show");
+      $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
+      document.getElementById('show').value = ".serv-show";
+      document.getElementById('rotate').value = ".second";
     });
     $('.third-btn').click(function () {
-      $('nav ul .third-show').toggleClass("show2");
+      $('nav ul .third-show').toggleClass("show");
       $('nav ul .third').toggleClass("rotate");
+      $(`nav ul ${document.getElementById('show').value}`).toggleClass("show");
+      $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
+      document.getElementById('show').value = ".third-show";
+      document.getElementById('rotate').value = ".third";
     });
     $('.fourth-btn').click(function () {
-      $('nav ul .fourth-show').toggleClass("show3");
+      $('nav ul .fourth-show').toggleClass("show");
       $('nav ul .fourth').toggleClass("rotate");
+    });
+    $('.five-btn').click(function () {
+      $('nav ul .five-show').toggleClass("show");
+      $('nav ul .five').toggleClass("rotate");
+      $(`nav ul ${document.getElementById('show').value}`).toggleClass("show");
+      $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
+      document.getElementById('show').value = ".five-show";
+      document.getElementById('rotate').value = ".five";
     });
     $('nav ul li').click(function () {
       $(this).addClass("active").siblings().removeClass("active");

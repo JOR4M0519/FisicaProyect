@@ -68,15 +68,18 @@ nav ul ul{
 nav ul .feat-show.show{
   display: block;
 }
-nav ul .serv-show.show1{
+nav ul .serv-show.show{
   display: block;
 }
 
-nav ul .third-show.show2{
+nav ul .third-show.show{
   display: block;
 }
 
-nav ul .fourth-show.show3{
+nav ul .fourth-show.show{
+  display: block;
+}
+nav ul .five-show.show{
   display: block;
 }
 nav ul ul li{
@@ -151,5 +154,8 @@ nav ul li a span.rotate{
 iframe{
   width: 100%; height: 100%;
   border: 5px solid black;
+}
+.textMenu{
+  
 }
 
