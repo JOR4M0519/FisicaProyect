@@ -90,10 +90,9 @@
               </a>
               <ul class="serv-show show1">
                 <li><a href="#" id="flujoelectrico">Flujo Eléctrico</a></li>
-                <li><a href="#">Esfera</a></li>
-                <li><a href="#">Cilindro</a></li>
-                <li><a href="#">Linea de carga</a></li>
-                <li><a href="#">Lamina</a></li>
+                <li><a href="#" id="LGEsfera">Campo Esfera</a></li>
+                <li><a href="#">Campo Cilindro</a></li>
+                <li><a href="#">Campo Lamina</a></li>
               </ul>
             </li>
             <li>
@@ -176,8 +175,13 @@
         document.getElementById('frame').src = "./CEAnillo.html";
       }
     );
+    $('#LGEsfera').click(
+      function () {
+        document.getElementById('frame').src = "./LGEsfera.html";
+      }
+    );
 
-      
+
     $('.btn').click(function () {
       $(this).toggleClass("click");
       $('.sidebar').toggleClass("show");
