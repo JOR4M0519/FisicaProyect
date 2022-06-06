@@ -1,4 +1,5 @@
-function drawGraph (punto_1,punto_2) {
+function drawGraph (cargas,punto) {
+    console.log(cargas, punto);
     const canvas = document.getElementById("canvas");
     /** @type {CanvasRenderingContext2D} */
     const ctx = canvas.getContext("2d");
@@ -63,7 +64,20 @@ function drawGraph (punto_1,punto_2) {
             ctx.stroke();
         };
         
-        drawFunction(punto_1,punto_2, ctx, origin);
+        drawPoint2(punto,ctx,origin);
+        for(const carga of cargas){
+            drawFunction(carga,punto, ctx, origin);
+        }
+        
+
+        function drawPoint2(punto, ctx, origin) {
+            const und = 50;
+            
+            ctx.fillStyle = "green";
+        
+            ctx.fillRect(origin.x+(punto.x*und) , (origin.y-(punto.y*und)), 5, 5);
+            return {x: (origin.x+(punto.x*und)), y: (origin.y-(punto.y*und))}
+        }
 
         function drawPoint(punto, ctx, origin) {
             const und = 50;
@@ -71,66 +85,65 @@ function drawGraph (punto_1,punto_2) {
             ctx.fillStyle = "red";
         
             ctx.fillRect(origin.x+(punto.x*und) , (origin.y-(punto.y*und)), 5, 5);
-            return {x: (origin.x+(punto.x*und)), y: (origin.y-(punto.y*und)), carga: punto.carga}
+            return {x: (origin.x+(punto.x*und)), y: (origin.y-(punto.y*und))}
         }
         
-        function drawArrow(punto_1, punto_2 , ctx){
+        function drawArrow(carga, punto, ctx,origin){
             const und = 50;
         
             ctx.beginPath();
             ctx.lineWidth = 3;
             ctx.strokeStyle = "#fffefe";
+
+            let coordenadaCargaX = origin.x+(carga.x*und);
+            let coordenadaCargaY = origin.y-(carga.y*und);
             
-            ctx.moveTo(punto_1.x,punto_1.y);
-        
-            if((punto_1.carga>0 && punto_2.carga>0) || (punto_1.carga<0 && punto_2.carga<0)){
-                let halfdistance =  Math.sqrt(Math.pow((punto_2.x-punto_1.x),2)+Math.pow((punto_2.y-punto_1.y),2))/2;
-        
+            ctx.moveTo(coordenadaCargaX,coordenadaCargaY);
+            let halfdistance =  Math.sqrt(Math.pow((carga.x-punto.x),2)+Math.pow((carga.y-punto.y),2))/2;
+            coordenadaCargaX = origin.x;
+            coordenadaCargaY = origin.y;
+
+            if((carga.campoC>0)){
                 //distanciar en ejes
-                if(punto_1.x>punto_2.x){
-                    if(punto_1.y>punto_2.y){
-                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y+halfdistance);
+                if(carga.x>punto.x){
+                    if(carga.y>punto.y){
+                        ctx.lineTo(coordenadaCargaX+halfdistance*und,coordenadaCargaY+halfdistance*und);
                     }else{
-                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y-halfdistance);
+                        ctx.lineTo(coordenadaCargaX+halfdistance*und,coordenadaCargaY-halfdistance*und);
                     }
                 }else{
-                    if(punto_1.y>punto_2.y){
-                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y+halfdistance);
+                    if(carga.y>punto.y){
+                        ctx.lineTo(coordenadaCargaX-halfdistance*und,coordenadaCargaY+halfdistance*und);
                     }else{
-                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y-halfdistance);
+                        ctx.lineTo(coordenadaCargaX-halfdistance*und,coordenadaCargaY-halfdistance*und);
                     }
                 }
         
             }else{
-               
-                let halfdistance =  Math.sqrt(Math.pow((punto_2.x-punto_1.x),2)+Math.pow((punto_2.y-punto_1.y),2))/(50*4);
-        
                 //distanciar en ejes
-                if(punto_1.x>punto_2.x){
-                    if(punto_1.y>punto_2.y){
-                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y-halfdistance);
+                if(carga.x>punto.x){
+                    if(carga.y>punto.y){
+                        ctx.lineTo(coordenadaCargaX-halfdistance*und,coordenadaCargaY-halfdistance*und);
                     }else{
-                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y+halfdistance);
+                        ctx.lineTo(coordenadaCargaX-halfdistance*und,coordenadaCargaY+halfdistance*und);
                     }
                 }else{
-                    if(punto_1.y>punto_2.y){
-                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y-halfdistance);
+                    if(carga.y>punto.y){
+                        ctx.lineTo(coordenadaCargaX+halfdistance*und,coordenadaCargaY-halfdistance*und);
                     }else{
-                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y+halfdistance);
+                        ctx.lineTo(coordenadaCargaX+halfdistance*und,coordenadaCargaY+halfdistance*und);
                     }
                 }
             }
-
         
             ctx.stroke();
         }
         
-        function drawFunction(punto_1, punto_2 , ctx, origin) {
+        function drawFunction(carga, punto, ctx, origin) {
             
-            let coordPunto1 = drawPoint(punto_1,ctx,origin);
-            let coordPunto2 = drawPoint(punto_2,ctx,origin);
-            drawArrow(coordPunto1, coordPunto2,ctx);
-            drawArrow(coordPunto2, coordPunto1,ctx);
+            drawPoint(carga,ctx,origin);
+
+            drawArrow(carga,punto,ctx,origin);
         
         }
         
@@ -202,14 +215,6 @@ function drawGraph (punto_1,punto_2) {
 
         //GetData
 
-        try{
-            var punto1 = [document.getElementById("p1x").value , document.getElementById("p1x").value]
-
-
-        }catch(err){
-            alert("Digite correctamente los valores de las cargas")
-        }
-
         // drawFunction(function (x) {return x-(2*x);
         // }, "#fffff");
 
@@ -258,11 +263,11 @@ function drawGraph (punto_1,punto_2) {
         let currentMouseX = event.clientX;
         let currentMouseY = event.clientY;
 
-        // if (drag) {
-        //     offsetX = mouseX - currentMouseX;
-        //     offsetY = mouseY - currentMouseY;
-        //     drawScreen();
-        // }
+        if (drag) {
+            offsetX = mouseX - currentMouseX;
+            offsetY = mouseY - currentMouseY;
+            drawScreen();
+        }
     }
 
     canvas.onmouseup = function (event) {
