@@ -28,12 +28,12 @@
 </head>
 
 <body>
-  <input type="hidden" id="cantidadCapacitores" value="1">
+  <input type="hidden" id="cantidadvoltajes" value="1">
   <div style="padding-top: 0%;">
     <div
       style="width: 100%; height: 100%; align-items: center; display: flex; flex-direction: column; justify-content: center;">
 
-      <h1>Capacitancia en Circuitos</h1><br>
+      <h1>Voltaje en Circuitos</h1><br>
 
       <h2>Tipo de circuito</h2>
       <div class="input-group input-group-sm mb-3"
@@ -45,21 +45,21 @@
         </div>
       </div>
 
-      <h3>Capacitores</h3>
+      <h3>Voltajes</h3>
 
-      <div class="input-group input-group-sm mb-3" id="divcapacitancias" style="padding-left: 15%; padding-right: 15%;">
+      <div class="input-group input-group-sm mb-3" id="divvoltajes" style="padding-left: 15%; padding-right: 15%;">
 
-        <div id="divCapacitancia1" class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Capacitancia 1</span>
-          <input type="text" id="capacitancia1" class="form-control" aria-label="Sizing example input"
+        <div id="divvoltaje1" class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Voltaje 1</span>
+          <input type="text" id="voltaje1" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm">
-          <span class="input-group-text" id="inputGroup-sizing-sm">F</span>
-          <span class="input-group-text" id="x10C1">x10</span>
-          <input type="text" class="form-control" id="ecapacitancia1" aria-label="Sizing example input"
+          <span class="input-group-text" id="inputGroup-sizing-sm">V</span>
+          <span class="input-group-text" id="X10R1">x10</span>
+          <input type="text" class="form-control" id="evoltaje1" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm" style="margin-right: 3%;">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc1"
-              value="x10C1/ecapacitancia1/capacitancia1" onclick="checkbox(this)" checked>
+              value="X10R1/evoltaje1/voltaje1" onclick="checkbox(this)" checked>
             <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
           </div>
         </div>
@@ -67,16 +67,16 @@
       </div>
       <div class="btn-group" role="group" aria-label="Basic example"
         style="width: 100%; padding-left: 15%; padding-right: 15%; margin-left: -7%;">
-        <button type="button" id="addCapacitor" class="btn btn-dark">Añadir Capacitor</button>
-        <button type="button" id="deleteCapacitor" class="btn btn-dark">Eliminar Capacitor</button>
+        <button type="button" id="addvoltaje" class="btn btn-dark">Añadir voltaje</button>
+        <button type="button" id="deletevoltaje" class="btn btn-dark">Eliminar voltaje</button>
         <button type="button" id="btnResultado" class="btn btn-dark">Resultado</button>
       </div><br><br>
 
       <div class="input-group input-group-sm mb-3" style="padding-left: 15%; padding-right: 15%;">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Capacitancia total</span>
+        <span class="input-group-text" id="inputGroup-sizing-sm">voltaje total</span>
         <input type="text" id="resultado" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm" disabled>
-        <span class="input-group-text" id="inputGroup-sizing-sm">F</span>
+        <span class="input-group-text" id="inputGroup-sizing-sm">V</span>
         <span class="input-group-text" id="x10R">x10 E</span>
         <input type="text" id="eResultado" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm">
@@ -88,63 +88,61 @@
   <script src="./assets/js/checkbox.js"> </script>
 
   <script>
-    document.getElementById('addCapacitor').addEventListener('click', function () {
+    document.getElementById('addvoltaje').addEventListener('click', function () {
 
 
+      var num = parseInt(document.getElementById('cantidadvoltajes').value) + 1;
 
-      var num = parseInt(document.getElementById('cantidadCapacitores').value) + 1;
-      if (num >= 11) {
-        alert('Maxima cantidad de capacitores');
-      } else {
+      if (document.getElementById('cb1').checked) {
 
-        document.getElementById('divcapacitancias').innerHTML +=
+
+        document.getElementById('divvoltajes').innerHTML +=
           `<br id="br${num}">
-      <div id="divCapacitancia${num}" class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Capacitancia ${num}</span>
-          <input type="text" id="capacitancia${num}" class="form-control" aria-label="Sizing example input"
+      <div id="divvoltaje${num}" class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Voltaje ${num}</span>
+          <input type="text" id="voltaje${num}" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm">
-          <span class="input-group-text" id="inputGroup-sizing-sm">F</span>
-          <span class="input-group-text" id="x10C${num}">x10</span>
-          <input type="text" class="form-control" id="ecapacitancia${num}" aria-label="Sizing example input"
+          <span class="input-group-text" id="inputGroup-sizing-sm">V</span>
+          <span class="input-group-text" id="X10R${num}">x10</span>
+          <input type="text" class="form-control" id="evoltaje${num}" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm" style="margin-right: 3%;">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc${num}"
-                value="x10C${num}/ecapacitancia${num}/capacitancia${num}" onclick="checkbox(this)" checked>
+                value="X10R${num}/evoltaje${num}/voltaje${num}" onclick="checkbox(this)" checked>
               <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
             </div>
         </div>`;
-        document.getElementById('cantidadCapacitores').value = num;
+        document.getElementById('cantidadvoltajes').value = num;
       }
+      else{ alert(' En serie solo se puede un voltaje')}
+    
     })
 
     document.getElementById('btnResultado').addEventListener('click', function () {
 
 
-      var capacitancia = 0;
+      var voltaje = 0;
 
       if (document.getElementById('cb1').checked) {
-        for (var i = 1; i <= parseInt(document.getElementById('cantidadCapacitores').value); i++) {
+        for (var i = 1; i <= parseInt(document.getElementById('cantidadvoltajes').value); i++) {
 
-          var c1 = parseFloat(document.getElementById(`capacitancia${i}`).value) * Math.pow(10, (parseFloat(document.getElementById(`ecapacitancia${i}`).value)));
+          var c1 = parseFloat(document.getElementById(`voltaje${i}`).value) * Math.pow(10, (parseFloat(document.getElementById(`evoltaje${i}`).value)));
           
-          capacitancia = capacitancia+ c1;
-          console.log(capacitancia);
+          voltaje = voltaje+ c1;
+          console.log(voltaje);
 
         }
       } else {
-        for (var i = 1; i <= parseInt(document.getElementById('cantidadCapacitores').value); i++) {
-          var c1 = parseFloat(document.getElementById(`capacitancia${i}`).value) * Math.pow(10, (parseFloat(document.getElementById(`ecapacitancia${i}`).value)));
 
-          capacitancia += (1 / c1);
-          console.log('olo');
-        }
-        capacitancia = (1 / parseFloat(capacitancia));
+          var c1 = parseFloat(document.getElementById(`voltaje1`).value) * Math.pow(10, (parseFloat(document.getElementById(`evoltaje1`).value)));
+
+        voltaje = c1;
       }
 
 
-      if (isNaN(capacitancia) == true) { alert('Error, datos invalidos') } else {
+      if (isNaN(voltaje) == true) { alert('Error, datos invalidos') } else {
 
-        var exponencial = parseFloat(capacitancia).toExponential(5);
+        var exponencial = parseFloat(voltaje).toExponential(5);
         var resultado = exponencial.split('e');
 
 
@@ -154,15 +152,15 @@
 
     });
 
-    document.getElementById('deleteCapacitor').addEventListener('click', function () {
+    document.getElementById('deletevoltaje').addEventListener('click', function () {
 
-      var num = document.getElementById('cantidadCapacitores').value;
+      var num = document.getElementById('cantidadvoltajes').value;
       if (num <= 1) {
-        alert('No hay capacitancias que se puedan eliminar');
+        alert('No hay voltajes que se puedan eliminar');
       } else {
-        $(`#divCapacitancia${num}`).remove();
+        $(`#divvoltaje${num}`).remove();
         $(`#br${num}`).remove();
-        document.getElementById('cantidadCapacitores').value = parseInt(num) - 1;
+        document.getElementById('cantidadvoltajes').value = parseInt(num) - 1;
       }
     });
 

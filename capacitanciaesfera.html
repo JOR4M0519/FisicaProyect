@@ -36,32 +36,33 @@
       <h1>Capacitancia en Esfera</h1><br>
       <h5>Notación Científica</h5><br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbc2" value="x10C1/eCarga1/carga1"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbrb" value="x10ra/era/ra"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Radio a</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="cbc2" value="x10C2/eCarga2/carga2"
+        <input class="form-check-input" type="checkbox" role="switch" id="cbrb" value="x10rb/erb/rb"
           onclick="checkbox(this)" checked>
         <label class="form-check-label" for="flexSwitchCheckChecked">Radio b</label>
       </div><br>
 
+      <p>El radio b debe ser mayor a radio a.</p>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Radio a</span>
-        <input type="text" id="carga1" class="form-control" aria-label="Sizing example input"
+        <input type="text" id="ra" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        <span class="input-group-text" id="x10C1">x10</span>
-        <input type="text" id="eCarga1" class="form-control" aria-label="Sizing example input"
+        <span class="input-group-text" id="x10ra">x10</span>
+        <input type="text" id="era" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm">
       </div>
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 20%;">Radio b</span>
-        <input type="text" id="carga2" class="form-control" aria-label="Sizing example input"
+        <input type="text" id="rb" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm">
         <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        <span class="input-group-text" id="x10C2">x10</span>
-        <input type="text" id="eCarga2" class="form-control" aria-label="Sizing example input"
+        <span class="input-group-text" id="x10rb">x10</span>
+        <input type="text" id="erb" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm">
       </div>
 
@@ -79,5 +80,34 @@
 
     </div>
   </div>
+  <script>
+    document.getElementById('btnResultado').addEventListener('click', function(){
+
+
+      var epsilon = (8.85 * (Math.pow(10, -12)));
+      
+      var ra = parseFloat(document.getElementById('ra').value)*parseFloat(Math.pow(10,(document.getElementById('era').value)));
+      var rb = parseFloat(document.getElementById('rb').value)*parseFloat(Math.pow(10,(document.getElementById('erb').value)));
+
+      if(rb>ra){
+
+      var capacitancia  = (4*(Math.PI)*epsilon*ra*rb)/(rb-ra);
+
+
+      if(isNaN(capacitancia)==false){
+      var exponencial = parseFloat(capacitancia).toExponential(5);
+      var resultado = exponencial.split('e');
+
+      document.getElementById('resultado').value= resultado[0];
+      document.getElementById('eResultado').value= resultado[1];
+      }
+      else{
+        alert('Datos incorrectos, digite de nuevo')
+      }
+    }
+    else{alert('El radio b debe ser mayor a radio a.')}
+
+    });
+  </script>
   <script src="./assets/js/checkbox.js"></script>
 </body>

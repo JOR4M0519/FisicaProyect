@@ -108,15 +108,25 @@
               </ul>
             </li>
             <li>
-              <a href="#h" class="third-btn">Ley de Ohm
+            <a href="#h" class="six-btn">Capacitores
+              <span class="fas fa-caret-down six rotate"></span>
+            </a>
+            <ul class="six-show">
+              <li><a class="textMenu" id="capacitanciapp">Placas Paralelas</a></li>
+              <li><a class="textMenu" id="capacitanciaCilindro">Cilindro</a></li>
+              <li><a class="textMenu" id="capacitanciaesfera">Esfera</a></li>
+
+            </ul>
+          </li>
+            <li>
+            
+              <a href="#h" class="third-btn">Circuitos
                 <span class="fas fa-caret-down third rotate"></span>
               </a>
               <ul class="third-show">
-                <li><a class="textMenu">App Design</a></li>
-                <li><a class="textMenu">Web Design</a></li>
-                <li><a class="textMenu">App Design</a></li>
-                <li><a class="textMenu">Web Design</a></li>
-                <li><a class="textMenu">App Design</a></li>
+                <li><a class="textMenu" id="capacitanciaciruitos">Capacitancia</a></li>
+                <li><a class="textMenu" id="resistencia">Resistencia</a></li>
+                <li><a class="textMenu" id="voltaje">Voltaje</a></li>
               </ul>
             </li>
           </ul>
@@ -214,6 +224,37 @@
       }
     );
 
+    $('#capacitanciapp').click(
+      function () {
+        document.getElementById('frame').src = "./capacitanciapp.html";
+      }
+    );
+    $('#capacitanciaesfera').click(
+      function () {
+        document.getElementById('frame').src = "./capacitanciaesfera.html";
+      }
+    );
+    $('#capacitanciaCilindro').click(
+      function () {
+        document.getElementById('frame').src = "./capacitanciaCilindro.html";
+      }
+    );
+    $('#capacitanciaciruitos').click(
+      function () {
+        document.getElementById('frame').src = "./capacitanciaciruitos.html";
+      }
+    );
+    $('#resistencia').click(
+      function () {
+        document.getElementById('frame').src = "./resistencia.html";
+      }
+    );
+    $('#voltaje').click(
+      function () {
+        document.getElementById('frame').src = "./voltaje.html";
+      }
+    );
+
     $('.btn').click(function () {
       $(this).toggleClass("click");
       $('.sidebar').toggleClass("show");
@@ -255,6 +296,14 @@
       $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
       document.getElementById('show').value = ".five-show";
       document.getElementById('rotate').value = ".five";
+    });
+    $('.six-btn').click(function () {
+      $('nav ul .six-show').toggleClass("show");
+      $('nav ul .six').toggleClass("rotate");
+      $(`nav ul ${document.getElementById('show').value}`).toggleClass("show");
+      $(`nav ul ${document.getElementById('rotate').value}`).toggleClass("rotate");
+      document.getElementById('show').value = ".six-show";
+      document.getElementById('rotate').value = ".six";
     });
     $('nav ul li').click(function () {
       $(this).addClass("active").siblings().removeClass("active");
