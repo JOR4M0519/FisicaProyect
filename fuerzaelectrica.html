@@ -114,7 +114,28 @@
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="ec2x">
       </div><br>
       
-      <button type="button" class="btn btn-dark" id="btnResultado">Calcular</button><br>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" id="btnResultado">Calcular</button>
+        <button type="button" class="btn btn-dark" id="btnResultado" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="drawFunction()">Ver gráfica</button>
+      </div><br>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="staticBackdropLabel">Gráfica</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <canvas id="canvas" style="width: 100%;"></canvas>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
           <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
@@ -133,6 +154,7 @@
 </script>
 
   <script src="./assets/js/checkbox.js"></script>
+  <script src="./assets/js/graficafuerza.js"></script>
   <script>
 
     document.getElementById("btnResultado").addEventListener('click',function(){
