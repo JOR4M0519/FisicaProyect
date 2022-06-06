@@ -116,7 +116,7 @@
       
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-dark" id="btnResultado">Calcular</button>
-        <button type="button" class="btn btn-dark" id="btnResultado" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="drawFunction()">Ver gráfica</button>
+        <button type="button" disabled="disabled"  id="showGraphic" class="btn btn-dark" id="btnResultado" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Ver gráfica</button>
       </div><br>
 
       <!-- Modal -->
@@ -183,7 +183,7 @@
            
 
             const distanciaEntrePuntos = Math.sqrt((Math.pow((x2-x1), 2))+(Math.pow((y2-y1), 2)));
-            const fuerza = ((9*(Math.pow(10, 9)))*(carga1*(Math.pow(10, eCarga1)))*(carga2*(Math.pow(10, eCarga2))))/(Math.pow(distanciaEntrePuntos, 2));
+            let fuerza = ((9*(Math.pow(10, 9)))*(carga1*(Math.pow(10, eCarga1)))*(carga2*(Math.pow(10, eCarga2))))/(Math.pow(distanciaEntrePuntos, 2));
 
             fuerza = Math.abs(fuerza);
             var exponencial = parseFloat(fuerza).toExponential(3);
@@ -192,12 +192,23 @@
 
              document.getElementById('resultado').value=resultado[0];
              document.getElementById('eResultado').value=resultado[1];
+             document.getElementById('showGraphic').disabled = false;
               }
               catch(error){
+                console.log(error)
                 alert('error');
+                
               }
             
     });
+
+    document.getElementById("showGraphic").addEventListener('click',function(){
+      let punto_1 = {carga: carga1 ,x: x1, y: y1}
+      let punto_2 = {carga: carga2 ,x: x2, y: y2}
+
+      drawGraph(punto_1, punto_2); 
+
+    })
 
     
 

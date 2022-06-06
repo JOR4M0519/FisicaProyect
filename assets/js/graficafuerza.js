@@ -1,4 +1,4 @@
-window.onload = function () {
+function drawGraph (punto_1,punto_2) {
     const canvas = document.getElementById("canvas");
     /** @type {CanvasRenderingContext2D} */
     const ctx = canvas.getContext("2d");
@@ -48,10 +48,7 @@ window.onload = function () {
             x: width / 2,
             y: height / 2
         };
-
-        let previousX = document.getElementById("p1x");
-        let previousY = document.getElementById("p1y");
-
+        
         drawAxes(XAxis, YAxis, axisColor);
         drawGrid(origin, XAxis, YAxis, unit, gridColor, fontColor);
 
@@ -65,6 +62,78 @@ window.onload = function () {
             ctx.lineWidth = 1;
             ctx.stroke();
         };
+        
+        drawFunction(punto_1,punto_2, ctx, origin);
+
+        function drawPoint(punto, ctx, origin) {
+            const und = 50;
+            
+            ctx.fillStyle = "red";
+        
+            ctx.fillRect(origin.x+(punto.x*und) , (origin.y-(punto.y*und)), 5, 5);
+            return {x: (origin.x+(punto.x*und)), y: (origin.y-(punto.y*und)), carga: punto.carga}
+        }
+        
+        function drawArrow(punto_1, punto_2 , ctx){
+            const und = 50;
+        
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "#fffefe";
+            
+            ctx.moveTo(punto_1.x,punto_1.y);
+        
+            if((punto_1.carga>0 && punto_2.carga>0) || (punto_1.carga<0 && punto_2.carga<0)){
+                let halfdistance =  Math.sqrt(Math.pow((punto_2.x-punto_1.x),2)+Math.pow((punto_2.y-punto_1.y),2))/2;
+        
+                //distanciar en ejes
+                if(punto_1.x>punto_2.x){
+                    if(punto_1.y>punto_2.y){
+                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y+halfdistance);
+                    }else{
+                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y-halfdistance);
+                    }
+                }else{
+                    if(punto_1.y>punto_2.y){
+                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y+halfdistance);
+                    }else{
+                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y-halfdistance);
+                    }
+                }
+        
+            }else{
+               
+                let halfdistance =  Math.sqrt(Math.pow((punto_2.x-punto_1.x),2)+Math.pow((punto_2.y-punto_1.y),2))/(50*4);
+        
+                //distanciar en ejes
+                if(punto_1.x>punto_2.x){
+                    if(punto_1.y>punto_2.y){
+                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y-halfdistance);
+                    }else{
+                        ctx.lineTo(punto_2.x-halfdistance,punto_2.y+halfdistance);
+                    }
+                }else{
+                    if(punto_1.y>punto_2.y){
+                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y-halfdistance);
+                    }else{
+                        ctx.lineTo(punto_2.x+halfdistance,punto_2.y+halfdistance);
+                    }
+                }
+            }
+
+        
+            ctx.stroke();
+        }
+        
+        function drawFunction(punto_1, punto_2 , ctx, origin) {
+            
+            let coordPunto1 = drawPoint(punto_1,ctx,origin);
+            let coordPunto2 = drawPoint(punto_2,ctx,origin);
+            drawArrow(coordPunto1, coordPunto2,ctx);
+            drawArrow(coordPunto2, coordPunto1,ctx);
+        
+        }
+        
 
         function drawGrid(origin, XAxis, YAxis, unit, gridColor, fontColor) {
             ctx.strokeStyle = gridColor;
@@ -129,47 +198,51 @@ window.onload = function () {
             }
         };
 
-        function drawFunction(previousX, previousY) {
+        
 
-            ctx.fillStyle = "red";
-            ctx.fillRect(origin.x , origin.y , 3, 3);
+        //GetData
 
+        try{
+            var punto1 = [document.getElementById("p1x").value , document.getElementById("p1x").value]
+
+
+        }catch(err){
+            alert("Digite correctamente los valores de las cargas")
         }
 
-        drawFunction(function (x) {
-            return x-(2*x);
-        }, "#fffff");
+        // drawFunction(function (x) {return x-(2*x);
+        // }, "#fffff");
 
         // drawFunction(function(x) {
         //     return -Math.sin(x);
         // });
 
-        drawFunction(function (x) {
-            return Math.cos(x);
-        }, "#EA5356");
+        // drawFunction(function (x) {
+        //     return Math.cos(x);
+        // }, "#EA5356");
 
-        drawFunction(function (x) {
-            return x;
-        }, "#ffffff");
+        // drawFunction(function (x) {
+        //     return x;
+        // }, "#ffffff");
     };
 
-    window.onresize = function (event) {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        drawScreen();
-    };
+    // window.onresize = function (event) {
+    //     width = canvas.width = window.innerWidth;
+    //     height = canvas.height = window.innerHeight;
+    //     drawScreen();
+    // };
 
-    canvas.onwheel = function (event) {
-        unit -= event.deltaY / 50;
-        // if (unit < 8) {
-        //     unit = 8;
-        // }
-        // if (unit > 130) {
-        //     unit = 130;
-        // }
-        //console.log(unit);
-        drawScreen();
-    };
+    // canvas.onwheel = function (event) {
+    //     unit -= event.deltaY / 50;
+    //     // if (unit < 8) {
+    //     //     unit = 8;
+    //     // }
+    //     // if (unit > 130) {
+    //     //     unit = 130;
+    //     // }
+    //     //console.log(unit);
+    //     drawScreen();
+    // };
 
     let drag = false;
     let mouseX = 0;
