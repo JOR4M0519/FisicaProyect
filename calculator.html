@@ -91,8 +91,9 @@
               <ul class="serv-show show1">
                 <li><a href="#" id="flujoelectrico">Flujo Eléctrico</a></li>
                 <li><a href="#" id="LGEsfera">Campo Esfera</a></li>
-                <li><a href="#">Campo Cilindro</a></li>
-                <li><a href="#">Campo Lamina</a></li>
+                <li><a href="#" id="LGLamina">Campo Lamina</a></li>
+                <li><a href="#" id="LGCilindro">Campo Cilindro</a></li>
+
               </ul>
             </li>
             <li>
@@ -180,7 +181,16 @@
         document.getElementById('frame').src = "./LGEsfera.html";
       }
     );
-
+    $('#LGCilindro').click(
+      function () {
+        document.getElementById('frame').src = "./LGCilindro.html";
+      }
+    );
+    $('#LGLamina').click(
+      function () {
+        document.getElementById('frame').src = "./LGLamina.html";
+      }
+    );
 
     $('.btn').click(function () {
       $(this).toggleClass("click");

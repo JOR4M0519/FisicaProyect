@@ -163,6 +163,7 @@
             const distanciaEntrePuntos = Math.sqrt((Math.pow((x2-x1), 2))+(Math.pow((y2-y1), 2)));
             const fuerza = ((9*(Math.pow(10, 9)))*(carga1*(Math.pow(10, eCarga1)))*(carga2*(Math.pow(10, eCarga2))))/(Math.pow(distanciaEntrePuntos, 2));
 
+            fuerza = Math.abs(fuerza);
             var exponencial = parseFloat(fuerza).toExponential(3);
             var resultado = exponencial.split('e');
           
@@ -173,8 +174,6 @@
               catch(error){
                 alert('error');
               }
-            
-
             
     });
 
