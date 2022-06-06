@@ -49,44 +49,50 @@
 
       <h3>Datos de la Carga</h3>
       <div id="divCargas" style="padding-left: 30%; padding-right: 30%;">
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Carga 1</span>
-          <input type="text" id="carga1" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm">
-          <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
-          <span class="input-group-text" id="x10C1">x10</span>
-          <input type="text" class="form-control" id="eCarga1" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm" style="margin-right: 3%;">
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc1"
-              value="x10C1/eCarga1/carga1" onclick="checkbox(this)" checked>
-            <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
+        <div id="divCarga1">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Carga 1</span>
+            <input type="text" id="carga1" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm">
+            <span class="input-group-text" id="inputGroup-sizing-sm">C</span>
+            <span class="input-group-text" id="x10C1">x10</span>
+            <input type="text" class="form-control" id="eCarga1" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm" style="margin-right: 3%;">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="cbc1"
+                value="x10C1/eCarga1/carga1" onclick="checkbox(this)" checked>
+              <label class="form-check-label" for="flexSwitchCheckDefault">Notación</label>
+            </div>
           </div>
-        </div>
 
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text flabel" id="inputGroup-sizing-sm">x</span>
-          <input type="text" id="x1" class="form-control finput" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm">
-          <span class="input-group-text" id="inputGroup-sizing-sm" style="margin-right: 10%;">m</span>
-          <span class="input-group-text flabel" id="inputGroup-sizing-sm">y</span>
-          <input type="text" id="y1" class="form-control finput" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm">
-          <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text flabel" id="inputGroup-sizing-sm">x</span>
+            <input type="text" id="x1" class="form-control finput" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm">
+            <span class="input-group-text" id="inputGroup-sizing-sm" style="margin-right: 10%;">m</span>
+            <span class="input-group-text flabel" id="inputGroup-sizing-sm">y</span>
+            <input type="text" id="y1" class="form-control finput" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm">
+            <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
+          </div>
         </div>
 
       </div>
       <div class="btn-group" role="group" aria-label="Basic example"
         style="width: 100%; padding-left: 30%; padding-right: 30%; margin-left: -7%;">
         <button type="button" id="addCarga" class="btn btn-dark">Añadir Carga</button>
+        <button type="button" id="deleteCarga" class="btn btn-dark">Eliminar Carga</button>
         <button type="button" id="btnResultado" class="btn btn-dark">Resultado</button>
       </div><br><br>
 
       <div class="input-group input-group-sm mb-3" style="padding-left: 30%; padding-right: 30%;">
         <span class="input-group-text" id="inputGroup-sizing-sm">Campo</span>
-        <input type="text" id="resultado"class="form-control" aria-label="Sizing example input"
+        <input type="text" id="resultado" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-sm" disabled>
         <span class="input-group-text" id="inputGroup-sizing-sm">N/C</span>
+        <span class="input-group-text" id="x10R">x10</span>
+        <input type="text" class="form-control" id="eResultado" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm" >
       </div>
 
     </div>
@@ -104,7 +110,8 @@
       } else {
 
         document.getElementById('divCargas').innerHTML +=
-          `<br>
+          `<br id="br${num}">
+          <div id="divCarga${num}">
       <div class="input-group input-group-sm mb-3">
           <span class="input-group-text" id="inputGroup-sizing-sm">Carga ${num}</span>
           <input type="text" id="carga${num}" class="form-control" aria-label="Sizing example input"
@@ -129,40 +136,57 @@
           <input type="text" id="y${num}" class="form-control finput" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm">
           <span class="input-group-text" id="inputGroup-sizing-sm">m</span>
-        </div>`;
+        </div>
+      </div>`;
         document.getElementById('cantidadCargas').value = num;
       }
     })
 
-    document.getElementById('btnResultado').addEventListener('click', function(){
-    var campoX = 0;
-    var campoY = 0;
-    var x1 = document.getElementById('xp1').value;
-    var y1 = document.getElementById('yp1').value;
+    document.getElementById('btnResultado').addEventListener('click', function () {
+      var campoX = 0;
+      var campoY = 0;
+      var x1 = document.getElementById('xp1').value;
+      var y1 = document.getElementById('yp1').value;
 
-    for (var i = 1; i <= parseInt(document.getElementById('cantidadCargas').value); i++) {
+      for (var i = 1; i <= parseInt(document.getElementById('cantidadCargas').value); i++) {
 
-      var x2 = document.getElementById(`x${i}`).value;
-      var y2 = document.getElementById(`y${i}`).value;
-      var distancia = Math.sqrt((Math.pow((x2 - x1), 2)) + (Math.pow((y2 - y1), 2)));
+        var x2 = document.getElementById(`x${i}`).value;
+        var y2 = document.getElementById(`y${i}`).value;
+        var distancia = Math.sqrt((Math.pow((x2 - x1), 2)) + (Math.pow((y2 - y1), 2)));
 
-      var carga1 = document.getElementById(`carga${i}`).value;
-      var eCarga = document.getElementById(`eCarga${i}`).value;
+        var carga1 = document.getElementById(`carga${i}`).value;
+        var eCarga = document.getElementById(`eCarga${i}`).value;
 
-      var campo = ((9 * (Math.pow(10, 9))) * (carga1 * (Math.pow(10, eCarga)))) / (Math.pow(distancia, 2));
+        var campo = ((9 * (Math.pow(10, 9))) * (carga1 * (Math.pow(10, eCarga)))) / (Math.pow(distancia, 2));
 
-      campoX += (campo * ((Math.abs(x2 - x1)) / distancia));
-      campoY += (campo * ((Math.abs(y2 - y1)) / distancia));
+        campoX += (campo * ((Math.abs(x2 - x1)) / distancia));
+        campoY += (campo * ((Math.abs(y2 - y1)) / distancia));
 
-    }
+      }
 
-    var resultado = Math.sqrt((Math.pow(campoX, 2)) + (Math.pow(campoY, 2)));
+      var campo = Math.sqrt((Math.pow(campoX, 2)) + (Math.pow(campoY, 2)));
 
-    if(isNaN(resultado)==true){ alert('Error, datos invalidos')}else{
-      document.getElementById('resultado').value=resultado;
-    }  
+      if (isNaN(campo) == true) { alert('Error, datos invalidos') } else {
 
-  });
+        var exponencial = parseFloat(campo).toExponential(5);
+        var resultado = exponencial.split('e');
 
+        document.getElementById('resultado').value = resultado[0];
+        document.getElementById('eResultado').value = resultado[1];
+      }
+
+    });
+
+    document.getElementById('deleteCarga').addEventListener('click', function () {
+
+      var num = document.getElementById('cantidadCargas').value;
+      if (num <= 1) {
+        alert('No hay cargas que se puedan eliminar');
+      } else {
+        $(`#divCarga${num}`).remove();
+        $(`#br${num}`).remove();
+        document.getElementById('cantidadCargas').value = parseInt(num) - 1;
+      }
+    });
   </script>
 </body>
